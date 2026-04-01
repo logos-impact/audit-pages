@@ -18,13 +18,7 @@
             background-color: #f4f4f4;
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: white;
-        }
-        
-        header {
+        .header {
             background-color: #1A3A5C;
             color: white;
             padding: 30px 20px;
@@ -35,6 +29,13 @@
             font-size: 32px;
             font-weight: bold;
             letter-spacing: 2px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
         
         .hero {
@@ -51,32 +52,36 @@
         }
         
         .hero .company-name {
-            font-size: 28px;
+            font-size: 42px;
+            font-weight: bold;
             color: #ffd700;
             margin-bottom: 15px;
-            font-weight: bold;
         }
         
         .hero p {
             font-size: 20px;
-            margin-bottom: 10px;
             opacity: 0.95;
         }
         
         .section {
-            padding: 60px 20px;
+            padding: 50px 20px;
+        }
+        
+        .section:nth-child(even) {
+            background-color: #f9f9f9;
         }
         
         .section-title {
-            text-align: center;
             font-size: 32px;
             color: #1A3A5C;
-            margin-bottom: 50px;
+            margin-bottom: 35px;
+            text-align: center;
+            font-weight: bold;
             position: relative;
             padding-bottom: 15px;
         }
         
-        .section-title:after {
+        .section-title::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -87,123 +92,116 @@
             background-color: #1A3A5C;
         }
         
-        .bg-light {
-            background-color: #f9f9f9;
-        }
-        
-        .cards-container {
+        .pain-grid, .gain-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            max-width: 1100px;
-            margin: 0 auto;
+            margin-top: 40px;
         }
         
-        .card {
+        .pain-card, .gain-card {
             background: white;
-            padding: 35px;
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(26, 58, 92, 0.2);
+        .section:nth-child(even) .pain-card,
+        .section:nth-child(even) .gain-card {
+            background: white;
         }
         
-        .card-icon {
+        .pain-card:hover, .gain-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(26, 58, 92, 0.15);
+        }
+        
+        .pain-icon, .gain-icon {
             font-size: 48px;
             margin-bottom: 20px;
         }
         
-        .card h3 {
+        .pain-card h3, .gain-card h3 {
             color: #1A3A5C;
-            font-size: 24px;
+            font-size: 22px;
             margin-bottom: 15px;
         }
         
-        .card p {
+        .pain-card p, .gain-card p {
             color: #555;
-            font-size: 16px;
             line-height: 1.7;
         }
         
-        .gain-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
-            border-left: 5px solid #1A3A5C;
-        }
-        
-        .gain-number {
-            font-size: 42px;
-            font-weight: bold;
-            color: #1A3A5C;
-            margin: 15px 0;
-        }
-        
-        .audit-process {
-            max-width: 900px;
-            margin: 50px auto 0;
-        }
-        
-        .process-step {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 35px;
-            gap: 25px;
-        }
-        
-        .step-number {
-            background-color: #1A3A5C;
+        .gain-metric {
+            background: #1A3A5C;
             color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
             font-weight: bold;
-            flex-shrink: 0;
+            text-align: center;
+            font-size: 20px;
         }
         
-        .step-content h3 {
-            color: #1A3A5C;
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-        
-        .step-content p {
-            color: #555;
-            font-size: 16px;
-            line-height: 1.7;
+        .audit-section {
+            background: linear-gradient(135deg, #f9f9f9 0%, #e9ecef 100%);
         }
         
         .price-box {
-            background: linear-gradient(135deg, #1A3A5C 0%, #2d5a8c 100%);
+            background: #1A3A5C;
             color: white;
             padding: 40px;
             border-radius: 15px;
             text-align: center;
+            margin: 40px auto;
             max-width: 500px;
-            margin: 50px auto;
-            box-shadow: 0 10px 40px rgba(26, 58, 92, 0.3);
         }
         
-        .price-box h3 {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-        
-        .price {
+        .price-box .price {
             font-size: 56px;
             font-weight: bold;
             margin: 20px 0;
         }
         
-        .price-suffix {
-            font-size: 24px;
+        .price-box .price-detail {
+            font-size: 18px;
             opacity: 0.9;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .step {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .step-number {
+            background: #1A3A5C;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .step h3 {
+            color: #1A3A5C;
+            margin-bottom: 15px;
+            font-size: 20px;
         }
         
         .cta-section {
@@ -220,7 +218,7 @@
         
         .cta-section p {
             font-size: 20px;
-            margin-bottom: 35px;
+            margin-bottom: 40px;
             opacity: 0.95;
         }
         
@@ -230,36 +228,41 @@
             color: white;
             padding: 20px 50px;
             font-size: 22px;
-            font-weight: bold;
             text-decoration: none;
             border-radius: 50px;
+            font-weight: bold;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
             border: 3px solid white;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
         
         .cta-button:hover {
             background-color: white;
             color: #1A3A5C;
             transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 30px rgba(255,255,255,0.4);
         }
         
-        footer {
-            background-color: #0f2438;
+        .footer {
+            background-color: #0d1f33;
             color: white;
-            text-align: center;
             padding: 30px 20px;
+            text-align: center;
         }
         
-        footer p {
-            opacity: 0.8;
-            font-size: 14px;
+        .company-info {
+            background: #e9f5ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px auto;
+            max-width: 600px;
+            border-left: 5px solid #1A3A5C;
         }
         
-        .highlight {
-            color: #ffd700;
-            font-weight: bold;
+        .company-info p {
+            margin: 8px 0;
+            color: #1A3A5C;
+            font-weight: 500;
         }
         
         @media (max-width: 768px) {
@@ -268,133 +271,122 @@
             }
             
             .hero .company-name {
-                font-size: 22px;
-            }
-            
-            .hero p {
-                font-size: 18px;
+                font-size: 32px;
             }
             
             .section-title {
                 font-size: 26px;
             }
             
-            .cards-container {
+            .pain-grid, .gain-grid, .steps {
                 grid-template-columns: 1fr;
-            }
-            
-            .process-step {
-                flex-direction: column;
             }
             
             .cta-section h2 {
                 font-size: 28px;
             }
             
-            .cta-button {
-                padding: 18px 40px;
-                font-size: 20px;
+            .price-box .price {
+                font-size: 42px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
+        <div class="header">
             <div class="logo">LOGOS IMPACT</div>
-        </header>
+        </div>
         
-        <section class="hero">
+        <div class="hero">
             <div class="company-name">RENOV ACTION PROPRETE</div>
-            <p>SIREN: 524177110</p>
-            <h1>Transformez Votre Activité de Nettoyage<br>Grâce à l'Intelligence Artificielle</h1>
-            <p>Gagnez du temps, réduisez vos coûts et développez votre chiffre d'affaires</p>
-        </section>
+            <h1>Transformez votre entreprise de nettoyage grâce à l'Intelligence Artificielle</h1>
+            <p>Une proposition sur mesure pour optimiser vos opérations et multiplier vos résultats</p>
+        </div>
         
-        <!-- SECTION 1: DOULEURS -->
-        <section class="section">
-            <h2 class="section-title">Les Défis Quotidiens de Votre Entreprise</h2>
-            <div class="cards-container">
-                <div class="card">
-                    <div class="card-icon">⏰</div>
-                    <h3>Planification Chronophage</h3>
-                    <p>La gestion manuelle des plannings d'intervention, l'affectation des équipes et la coordination des chantiers vous font perdre <strong>8 à 12 heures par semaine</strong>. Chaque modification entraîne un effet domino difficile à gérer.</p>
+        <div class="company-info">
+            <p><strong>Entreprise :</strong> RENOV ACTION PROPRETE</p>
+            <p><strong>SIREN :</strong> 524 177 110</p>
+            <p><strong>Secteur :</strong> Nettoyage professionnel</p>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">🎯 Les Défis Actuels de Votre Activité</h2>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="pain-icon">⏰</div>
+                    <h3>Gestion complexe des plannings</h3>
+                    <p>La coordination des équipes sur différents sites génère des pertes de temps considérables. Les ajustements de dernière minute, les absences imprévues et la répartition optimale des ressources monopolisent un temps précieux qui devrait être consacré au développement commercial.</p>
                 </div>
-                
-                <div class="card">
-                    <div class="card-icon">📞</div>
-                    <h3>Gestion Client Fragmentée</h3>
-                    <p>Les demandes clients arrivent par téléphone, email, SMS... Suivre les devis, relancer les prospects et fidéliser vos clients actuels devient un casse-tête administratif quotidien qui vous détourne de votre cœur de métier.</p>
+                <div class="pain-card">
+                    <div class="pain-icon">📉</div>
+                    <h3>Acquisition clients chronophage</h3>
+                    <p>Prospecter de nouveaux clients dans le secteur du nettoyage demande énormément d'énergie. Entre les devis personnalisés, le suivi des prospects et la gestion de la relation client, il devient difficile de maintenir un flux constant de nouveaux contrats tout en gérant l'opérationnel.</p>
                 </div>
-                
-                <div class="card">
-                    <div class="card-icon">📊</div>
-                    <h3>Pilotage à l'Aveugle</h3>
-                    <p>Difficile d'avoir une vision claire de votre rentabilité par chantier, de vos marges réelles ou d'identifier vos clients les plus rentables. Sans données consolidées, vous prenez des décisions au feeling plutôt que sur des faits.</p>
+                <div class="pain-card">
+                    <div class="pain-icon">📊</div>
+                    <h3>Suivi qualité et réclamations</h3>
+                    <p>Garantir une qualité constante sur tous les chantiers et gérer les retours clients nécessite des processus rigoureux. Le manque de traçabilité et de reporting automatisé complique l'amélioration continue et peut impacter la satisfaction client.</p>
                 </div>
             </div>
-        </section>
+        </div>
         
-        <!-- SECTION 2: GAINS IA -->
-        <section class="section bg-light">
-            <h2 class="section-title">Comment l'IA Révolutionne Votre Activité</h2>
-            <div class="cards-container">
-                <div class="card gain-card">
-                    <div class="card-icon">🚀</div>
-                    <h3>Planification Automatisée</h3>
-                    <div class="gain-number">75%</div>
-                    <p><strong>Économisez 75% du temps de planification</strong> grâce à l'optimisation automatique des tournées et l'affectation intelligente des équipes. L'IA gère les imprévus et propose instantanément des réorganisations optimales.</p>
-                    <p style="margin-top: 15px; color: #1A3A5C; font-weight: bold;">Gain: 6 à 9 heures récupérées par semaine</p>
+        <div class="section">
+            <h2 class="section-title">🚀 L'IA comme Levier de Croissance</h2>
+            <div class="gain-grid">
+                <div class="gain-card">
+                    <div class="gain-icon">🤖</div>
+                    <h3>Optimisation automatisée des plannings</h3>
+                    <p>L'IA analyse vos contraintes (distances, compétences, disponibilités) et génère automatiquement les plannings optimaux. Les ajustements en temps réel s'effectuent instantanément, réduisant drastiquement le temps administratif.</p>
+                    <div class="gain-metric">⏱️ Gain : 12h / semaine récupérées</div>
                 </div>
-                
-                <div class="card gain-card">
-                    <div class="card-icon">💰</div>
-                    <h3>Conversion Client Boostée</h3>
-                    <div class="gain-number">40%</div>
-                    <p><strong>Augmentez votre taux de conversion de 40%</strong> avec un CRM intelligent qui relance automatiquement vos prospects, personnalise vos offres et vous alerte sur les opportunités chaudes à saisir immédiatement.</p>
-                    <p style="margin-top: 15px; color: #1A3A5C; font-weight: bold;">Gain: +15 à 25% de chiffre d'affaires</p>
+                <div class="gain-card">
+                    <div class="gain-icon">💼</div>
+                    <h3>Génération intelligente de devis</h3>
+                    <p>Un assistant IA qualifie vos prospects, génère des devis personnalisés en quelques minutes et assure un suivi automatisé. Le taux de conversion augmente grâce à une réactivité exemplaire et un contenu adapté à chaque besoin.</p>
+                    <div class="gain-metric">📈 +35% de taux de conversion</div>
                 </div>
-                
-                <div class="card gain-card">
-                    <div class="card-icon">📈</div>
-                    <h3>Pilotage en Temps Réel</h3>
-                    <div class="gain-number">30%</div>
-                    <p><strong>Optimisez vos marges de 30%</strong> grâce à des tableaux de bord intelligents qui analysent la rentabilité de chaque intervention, identifient les dérives et vous recommandent des actions correctives précises.</p>
-                    <p style="margin-top: 15px; color: #1A3A5C; font-weight: bold;">Gain: Visibilité totale sur votre rentabilité</p>
+                <div class="gain-card">
+                    <div class="gain-icon">⭐</div>
+                    <h3>Contrôle qualité prédictif</h3>
+                    <p>Des tableaux de bord intelligents détectent les anomalies, anticipent les risques de réclamation et proposent des actions correctives. La satisfaction client grimpe tandis que les litiges diminuent significativement.</p>
+                    <div class="gain-metric">🎯 -60% de réclamations</div>
                 </div>
             </div>
-        </section>
+        </div>
         
-        <!-- SECTION 3: OFFRE AUDIT -->
-        <section class="section">
-            <h2 class="section-title">Audit IA Personnalisé pour RENOV ACTION PROPRETE</h2>
-            
-            <div class="audit-process">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Analyse Approfondie</h3>
-                        <p>Nous analysons en détail vos processus actuels : planification, gestion client, facturation, suivi des chantiers. Nous identifions précisément les goulots d'étranglement et les opportunités d'automatisation spécifiques à votre structure.</p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Stratégie IA Sur-Mesure</h3>
-                        <p>Nous concevons une feuille de route personnalisée avec les solutions IA les plus adaptées à votre activité de nettoyage : outils de planification intelligente, CRM automatisé, tableaux de bord décisionnels. Tout est calibré selon votre taille et vos objectifs.</p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Plan d'Action Chiffré</h3>
-                        <p>Vous recevez un rapport détaillé avec les gains financiers projetés (temps économisé, coûts réduits, CA additionnel), un calendrier de déploiement précis et un budget d'investissement transparent. Vous savez exactement où vous allez.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="section audit-section">
+            <h2 class="section-title">🔍 Audit IA Personnalisé</h2>
             
             <div class="price-box">
-                <h3>Investissement Audit IA</h3>
-                <div class="price">950€<span class="price-suffix"> HT</span></div>
+                <div class="price-detail">Investissement unique</div>
+                <div class="price">950€</div>
+                <div class="price-detail">HT - Audit complet de votre potentiel IA</div>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Analyse approfondie</h3>
+                    <p>Étude complète de vos processus actuels, identification des goulets d'étranglement et cartographie des opportunités d'automatisation spécifiques à votre activité de nettoyage.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Stratégie sur mesure</h3>
+                    <p>Élaboration d'une feuille de route IA adaptée à RENOV ACTION PROPRETE, avec priorisation des actions à fort impact et calcul précis du ROI attendu pour chaque solution.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Plan d'action concret</h3>
+                    <p>Remise d'un rapport détaillé avec recommandations techniques, échéancier de déploiement, budget prévisionnel et accompagnement pour les premiers pas de votre transformation digitale.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h2>Prêt à Propulser RENOV ACTION PROPRETE ?</h2>
+            <p>Réservez votre audit IA dès maintenant et découvrez comment gagner 12h par semaine<br>tout en augmentant votre chiffre d'affaires.</p>
+            <a href="https://calendly.com/logos-impact/audit-ia-nettoyage" class="cta-button">Réserver mon Audit IA</a>
+        </div>
+        
+        <div
