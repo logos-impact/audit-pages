@@ -18,10 +18,17 @@
             background-color: #f4f4f4;
         }
         
-        .header {
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        header {
             background-color: #1A3A5C;
             color: white;
-            padding: 30px 20px;
+            padding: 30px;
             text-align: center;
         }
         
@@ -31,17 +38,10 @@
             letter-spacing: 2px;
         }
         
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background-color: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
-        
         .hero {
-            background: linear-gradient(135deg, #1A3A5C 0%, #2d5a8c 100%);
+            background: linear-gradient(135deg, #1A3A5C 0%, #2d5a8a 100%);
             color: white;
-            padding: 60px 20px;
+            padding: 60px 30px;
             text-align: center;
         }
         
@@ -51,81 +51,102 @@
             line-height: 1.3;
         }
         
-        .hero .company-name {
-            font-size: 42px;
-            font-weight: bold;
-            color: #ffd700;
-            margin-bottom: 15px;
-        }
-        
         .hero p {
             font-size: 20px;
             opacity: 0.95;
         }
         
-        .section {
-            padding: 50px 20px;
+        .company-info {
+            background-color: #f8f9fa;
+            padding: 25px 30px;
+            border-left: 5px solid #1A3A5C;
+            margin: 30px;
         }
         
-        .section:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        
-        .section-title {
-            font-size: 32px;
+        .company-info h2 {
             color: #1A3A5C;
-            margin-bottom: 35px;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        .company-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 15px;
+        }
+        
+        .company-details div {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .company-details strong {
+            color: #1A3A5C;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        section {
+            padding: 50px 30px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        section:last-of-type {
+            border-bottom: none;
+        }
+        
+        h2 {
+            color: #1A3A5C;
+            font-size: 32px;
+            margin-bottom: 30px;
             text-align: center;
-            font-weight: bold;
             position: relative;
             padding-bottom: 15px;
         }
         
-        .section-title::after {
+        h2:after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
-            height: 4px;
+            height: 3px;
             background-color: #1A3A5C;
         }
         
         .pain-grid, .gain-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
         
         .pain-card, .gain-card {
-            background: white;
+            background: #f8f9fa;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            border-left: 5px solid #1A3A5C;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .section:nth-child(even) .pain-card,
-        .section:nth-child(even) .gain-card {
-            background: white;
         }
         
         .pain-card:hover, .gain-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 25px rgba(26, 58, 92, 0.15);
-        }
-        
-        .pain-icon, .gain-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
+            box-shadow: 0 10px 25px rgba(26, 58, 92, 0.15);
         }
         
         .pain-card h3, .gain-card h3 {
             color: #1A3A5C;
             font-size: 22px;
             margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .icon {
+            font-size: 28px;
         }
         
         .pain-card p, .gain-card p {
@@ -133,45 +154,42 @@
             line-height: 1.7;
         }
         
-        .gain-metric {
-            background: #1A3A5C;
+        .gain-card .metric {
+            background-color: #1A3A5C;
             color: white;
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 5px;
             margin-top: 15px;
             font-weight: bold;
             text-align: center;
-            font-size: 20px;
+            font-size: 18px;
         }
         
         .audit-section {
-            background: linear-gradient(135deg, #f9f9f9 0%, #e9ecef 100%);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
         
-        .price-box {
-            background: #1A3A5C;
-            color: white;
-            padding: 40px;
-            border-radius: 15px;
+        .audit-price {
             text-align: center;
-            margin: 40px auto;
-            max-width: 500px;
-        }
-        
-        .price-box .price {
-            font-size: 56px;
+            background-color: #1A3A5C;
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            font-size: 48px;
             font-weight: bold;
-            margin: 20px 0;
         }
         
-        .price-box .price-detail {
-            font-size: 18px;
+        .audit-price small {
+            font-size: 24px;
+            display: block;
+            margin-top: 10px;
             opacity: 0.9;
         }
         
-        .steps {
+        .audit-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
@@ -179,21 +197,22 @@
         .step {
             background: white;
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 8px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
         }
         
         .step-number {
-            background: #1A3A5C;
+            background-color: #1A3A5C;
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
+            font-size: 24px;
             font-weight: bold;
             margin: 0 auto 20px;
         }
@@ -204,65 +223,57 @@
             font-size: 20px;
         }
         
+        .step p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
         .cta-section {
-            background: linear-gradient(135deg, #1A3A5C 0%, #2d5a8c 100%);
+            background: linear-gradient(135deg, #1A3A5C 0%, #2d5a8a 100%);
             color: white;
-            padding: 80px 20px;
             text-align: center;
+            padding: 60px 30px;
         }
         
         .cta-section h2 {
-            font-size: 36px;
-            margin-bottom: 25px;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section h2:after {
+            background-color: white;
         }
         
         .cta-section p {
             font-size: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             opacity: 0.95;
         }
         
         .cta-button {
             display: inline-block;
-            background-color: #1A3A5C;
-            color: white;
+            background-color: white;
+            color: #1A3A5C;
             padding: 20px 50px;
             font-size: 22px;
+            font-weight: bold;
             text-decoration: none;
             border-radius: 50px;
-            font-weight: bold;
             transition: all 0.3s ease;
-            border: 3px solid white;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
         }
         
         .cta-button:hover {
-            background-color: white;
-            color: #1A3A5C;
             transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(255,255,255,0.4);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
         }
         
-        .footer {
-            background-color: #0d1f33;
+        footer {
+            background-color: #1A3A5C;
             color: white;
-            padding: 30px 20px;
             text-align: center;
-        }
-        
-        .company-info {
-            background: #e9f5ff;
-            padding: 25px;
-            border-radius: 10px;
-            margin: 30px auto;
-            max-width: 600px;
-            border-left: 5px solid #1A3A5C;
-        }
-        
-        .company-info p {
-            margin: 8px 0;
-            color: #1A3A5C;
-            font-weight: 500;
+            padding: 30px;
+            font-size: 14px;
         }
         
         @media (max-width: 768px) {
@@ -270,123 +281,121 @@
                 font-size: 28px;
             }
             
-            .hero .company-name {
-                font-size: 32px;
+            .hero p {
+                font-size: 18px;
             }
             
-            .section-title {
+            h2 {
                 font-size: 26px;
             }
             
-            .pain-grid, .gain-grid, .steps {
+            .audit-price {
+                font-size: 36px;
+            }
+            
+            .pain-grid, .gain-grid, .audit-steps {
                 grid-template-columns: 1fr;
-            }
-            
-            .cta-section h2 {
-                font-size: 28px;
-            }
-            
-            .price-box .price {
-                font-size: 42px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <header>
             <div class="logo">LOGOS IMPACT</div>
-        </div>
+        </header>
         
         <div class="hero">
-            <div class="company-name">RENOV ACTION PROPRETE</div>
-            <h1>Transformez votre entreprise de nettoyage grâce à l'Intelligence Artificielle</h1>
-            <p>Une proposition sur mesure pour optimiser vos opérations et multiplier vos résultats</p>
+            <h1>Transformez RENOV ACTION PROPRETE avec l'Intelligence Artificielle</h1>
+            <p>Optimisez vos opérations de nettoyage et multipliez votre rentabilité</p>
         </div>
         
         <div class="company-info">
-            <p><strong>Entreprise :</strong> RENOV ACTION PROPRETE</p>
-            <p><strong>SIREN :</strong> 524 177 110</p>
-            <p><strong>Secteur :</strong> Nettoyage professionnel</p>
+            <h2>RENOV ACTION PROPRETE</h2>
+            <div class="company-details">
+                <div>
+                    <strong>SIREN</strong>
+                    524177110
+                </div>
+                <div>
+                    <strong>Secteur d'activité</strong>
+                    Entreprise de nettoyage professionnel
+                </div>
+            </div>
         </div>
         
-        <div class="section">
-            <h2 class="section-title">🎯 Les Défis Actuels de Votre Activité</h2>
+        <section id="douleurs">
+            <h2>Les Défis Opérationnels de RENOV ACTION PROPRETE</h2>
             <div class="pain-grid">
                 <div class="pain-card">
-                    <div class="pain-icon">⏰</div>
-                    <h3>Gestion complexe des plannings</h3>
-                    <p>La coordination des équipes sur différents sites génère des pertes de temps considérables. Les ajustements de dernière minute, les absences imprévues et la répartition optimale des ressources monopolisent un temps précieux qui devrait être consacré au développement commercial.</p>
+                    <h3><span class="icon">⏱️</span> Planification Chronophage</h3>
+                    <p>La gestion manuelle des plannings d'intervention représente 8-12 heures par semaine de travail administratif. Chaque modification de dernière minute (absences, urgences clients) nécessite de recalculer toute l'organisation, créant du stress et des risques d'erreurs qui affectent la qualité de service.</p>
                 </div>
+                
                 <div class="pain-card">
-                    <div class="pain-icon">📉</div>
-                    <h3>Acquisition clients chronophage</h3>
-                    <p>Prospecter de nouveaux clients dans le secteur du nettoyage demande énormément d'énergie. Entre les devis personnalisés, le suivi des prospects et la gestion de la relation client, il devient difficile de maintenir un flux constant de nouveaux contrats tout en gérant l'opérationnel.</p>
+                    <h3><span class="icon">💰</span> Pertes Financières Invisibles</h3>
+                    <p>Sans outil d'analyse en temps réel, 15 à 25% de votre rentabilité s'évapore : trajets non optimisés, temps de nettoyage mal estimés, clients non-rentables non identifiés, opportunités de vente additionnelle manquées. Ces fuites financières passent inaperçues jusqu'à la fin du mois.</p>
                 </div>
+                
                 <div class="pain-card">
-                    <div class="pain-icon">📊</div>
-                    <h3>Suivi qualité et réclamations</h3>
-                    <p>Garantir une qualité constante sur tous les chantiers et gérer les retours clients nécessite des processus rigoureux. Le manque de traçabilité et de reporting automatisé complique l'amélioration continue et peut impacter la satisfaction client.</p>
+                    <h3><span class="icon">📉</span> Croissance Limitée</h3>
+                    <p>Votre système actuel ne suit pas votre ambition. Accepter de nouveaux clients signifie plus de complexité administrative, risque de baisse de qualité, et impossibilité de suivre précisément la performance de chaque intervention. Vous êtes bloqué par vos outils, pas par le marché.</p>
                 </div>
             </div>
-        </div>
+        </section>
         
-        <div class="section">
-            <h2 class="section-title">🚀 L'IA comme Levier de Croissance</h2>
+        <section id="gains">
+            <h2>L'IA : Votre Levier de Croissance Concrète</h2>
             <div class="gain-grid">
                 <div class="gain-card">
-                    <div class="gain-icon">🤖</div>
-                    <h3>Optimisation automatisée des plannings</h3>
-                    <p>L'IA analyse vos contraintes (distances, compétences, disponibilités) et génère automatiquement les plannings optimaux. Les ajustements en temps réel s'effectuent instantanément, réduisant drastiquement le temps administratif.</p>
-                    <div class="gain-metric">⏱️ Gain : 12h / semaine récupérées</div>
+                    <h3><span class="icon">🤖</span> Planification Automatisée Intelligente</h3>
+                    <p>L'IA analyse vos contraintes (disponibilités, compétences, localisation) et génère automatiquement les plannings optimaux en quelques secondes. Les modifications sont intégrées instantanément sans recalcul manuel.</p>
+                    <div class="metric">Gain de temps : 85% d'économie administrative<br>(10h/semaine récupérées)</div>
                 </div>
+                
                 <div class="gain-card">
-                    <div class="gain-icon">💼</div>
-                    <h3>Génération intelligente de devis</h3>
-                    <p>Un assistant IA qualifie vos prospects, génère des devis personnalisés en quelques minutes et assure un suivi automatisé. Le taux de conversion augmente grâce à une réactivité exemplaire et un contenu adapté à chaque besoin.</p>
-                    <div class="gain-metric">📈 +35% de taux de conversion</div>
+                    <h3><span class="icon">📊</span> Analyse Prédictive de Rentabilité</h3>
+                    <p>Tableaux de bord intelligents qui identifient en temps réel les clients les plus rentables, les interventions sous-facturées, les opportunités d'optimisation de trajets. L'IA vous alerte automatiquement sur les anomalies et opportunités.</p>
+                    <div class="metric">Augmentation de marge : 18-30%<br>(Identification des fuites cachées)</div>
                 </div>
+                
                 <div class="gain-card">
-                    <div class="gain-icon">⭐</div>
-                    <h3>Contrôle qualité prédictif</h3>
-                    <p>Des tableaux de bord intelligents détectent les anomalies, anticipent les risques de réclamation et proposent des actions correctives. La satisfaction client grimpe tandis que les litiges diminuent significativement.</p>
-                    <div class="gain-metric">🎯 -60% de réclamations</div>
+                    <h3><span class="icon">🚀</span> Passage à l'Échelle Sans Friction</h3>
+                    <p>Système évolutif qui gère 50 ou 500 interventions avec la même facilité. Processus de qualité standardisés, suivi automatique de performance, intégration fluide de nouveaux collaborateurs. Croître devient simple.</p>
+                    <div class="metric">Capacité opérationnelle : +200%<br>(Sans embauche administrative)</div>
                 </div>
             </div>
-        </div>
+        </section>
         
-        <div class="section audit-section">
-            <h2 class="section-title">🔍 Audit IA Personnalisé</h2>
-            
-            <div class="price-box">
-                <div class="price-detail">Investissement unique</div>
-                <div class="price">950€</div>
-                <div class="price-detail">HT - Audit complet de votre potentiel IA</div>
+        <section id="offre" class="audit-section">
+            <h2>Audit IA Personnalisé pour RENOV ACTION PROPRETE</h2>
+            <div class="audit-price">
+                950€ HT
+                <small>Investissement unique pour une transformation durable</small>
             </div>
             
-            <div class="steps">
+            <div class="audit-steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Analyse approfondie</h3>
-                    <p>Étude complète de vos processus actuels, identification des goulets d'étranglement et cartographie des opportunités d'automatisation spécifiques à votre activité de nettoyage.</p>
+                    <h3>Analyse Approfondie</h3>
+                    <p>Étude détaillée de vos processus actuels : planification, gestion client, rentabilité. Identification précise de vos points de friction et opportunités d'optimisation spécifiques à votre activité de nettoyage.</p>
                 </div>
+                
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>Stratégie sur mesure</h3>
-                    <p>Élaboration d'une feuille de route IA adaptée à RENOV ACTION PROPRETE, avec priorisation des actions à fort impact et calcul précis du ROI attendu pour chaque solution.</p>
+                    <h3>Stratégie IA Personnalisée</h3>
+                    <p>Élaboration d'une feuille de route sur mesure : outils IA recommandés, processus à automatiser en priorité, ROI prévisionnel chiffré. Solutions adaptées à votre budget et vos objectifs de croissance.</p>
                 </div>
+                
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>Plan d'action concret</h3>
-                    <p>Remise d'un rapport détaillé avec recommandations techniques, échéancier de déploiement, budget prévisionnel et accompagnement pour les premiers pas de votre transformation digitale.</p>
+                    <h3>Plan d'Implémentation</h3>
+                    <p>Roadmap détaillée avec étapes concrètes, timeline réaliste, formation de vos équipes, accompagnement au démarrage. Vous repartez avec un plan d'action clair et immédiatement applicable.</p>
                 </div>
             </div>
-        </div>
+        </section>
         
-        <div class="cta-section">
-            <h2>Prêt à Propulser RENOV ACTION PROPRETE ?</h2>
-            <p>Réservez votre audit IA dès maintenant et découvrez comment gagner 12h par semaine<br>tout en augmentant votre chiffre d'affaires.</p>
-            <a href="https://calendly.com/logos-impact/audit-ia-nettoyage" class="cta-button">Réserver mon Audit IA</a>
-        </div>
-        
-        <div
+        <section id="cta" class="cta-section">
+            <h2>Prêt à Transformer RENOV ACTION PROPRETE ?</h2>
+            <p>Réservez votre audit IA dès maintenant et découvrez votre potentiel de croissance caché</p>
+            <a href="https://calendly.com/logos-impact/audit-ia-nettoyage" class="c
