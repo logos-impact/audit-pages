@@ -21,14 +21,14 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background-color: #ffffff;
+            padding: 0 20px;
         }
         
         header {
             background-color: #1A3A5C;
             color: white;
-            padding: 30px 20px;
-            text-align: center;
+            padding: 30px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
         .logo {
@@ -40,7 +40,7 @@
         .hero {
             background: linear-gradient(135deg, #1A3A5C 0%, #2d5a8c 100%);
             color: white;
-            padding: 60px 20px;
+            padding: 60px 0;
             text-align: center;
         }
         
@@ -59,182 +59,119 @@
         
         .hero p {
             font-size: 20px;
-            margin-bottom: 10px;
+            opacity: 0.95;
         }
         
         .section {
-            padding: 60px 20px;
-        }
-        
-        .section:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        
-        .section-title {
-            color: #1A3A5C;
-            font-size: 36px;
-            margin-bottom: 40px;
-            text-align: center;
-            font-weight: bold;
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 50px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        
-        .card {
             background: white;
-            padding: 30px;
+            margin: 40px auto;
+            padding: 50px;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #1A3A5C;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #1A3A5C;
+        }
+        
+        .pain-points, .gains-list, .audit-steps {
+            display: grid;
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .pain-item, .gain-item, .step-item {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid #1A3A5C;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        .pain-item:hover, .gain-item:hover, .step-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(26, 58, 92, 0.15);
         }
         
-        .card-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        
-        .card-title {
+        .pain-item h3, .gain-item h3, .step-item h3 {
             color: #1A3A5C;
             font-size: 24px;
             margin-bottom: 15px;
-            font-weight: bold;
+            display: flex;
+            align-items: center;
         }
         
-        .card-description {
-            color: #555;
+        .icon {
+            font-size: 32px;
+            margin-right: 15px;
+        }
+        
+        .pain-item p, .gain-item p, .step-item p {
             font-size: 16px;
+            color: #555;
             line-height: 1.8;
         }
         
-        .gains-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
-            border-left: 5px solid #1A3A5C;
-        }
-        
         .gain-metric {
-            display: inline-block;
-            background-color: #1A3A5C;
+            background: #1A3A5C;
             color: white;
-            padding: 8px 16px;
-            border-radius: 25px;
-            font-weight: bold;
+            padding: 15px;
+            border-radius: 5px;
             margin-top: 15px;
             font-size: 18px;
+            font-weight: bold;
+            text-align: center;
         }
         
-        .audit-section {
+        .offer-box {
             background: linear-gradient(135deg, #1A3A5C 0%, #2d5a8c 100%);
             color: white;
-        }
-        
-        .audit-section .section-title {
-            color: white;
-        }
-        
-        .audit-section .section-subtitle {
-            color: #e0e0e0;
-        }
-        
-        .price-tag {
-            text-align: center;
-            font-size: 56px;
-            font-weight: bold;
-            color: #ffd700;
-            margin: 40px 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .price-subtitle {
-            text-align: center;
-            font-size: 20px;
-            color: #e0e0e0;
-            margin-top: -20px;
-            margin-bottom: 50px;
-        }
-        
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        
-        .step {
-            background: white;
-            color: #333;
-            padding: 30px;
+            padding: 40px;
             border-radius: 10px;
             text-align: center;
+            margin: 30px 0;
         }
         
-        .step-number {
-            display: inline-block;
-            width: 60px;
-            height: 60px;
-            background-color: #1A3A5C;
-            color: white;
-            border-radius: 50%;
-            line-height: 60px;
-            font-size: 28px;
+        .offer-price {
+            font-size: 56px;
             font-weight: bold;
-            margin-bottom: 20px;
+            margin: 20px 0;
+            color: #ffd700;
         }
         
-        .step-title {
-            font-size: 22px;
-            color: #1A3A5C;
-            margin-bottom: 15px;
+        .offer-box ul {
+            text-align: left;
+            max-width: 600px;
+            margin: 30px auto;
+            list-style: none;
+        }
+        
+        .offer-box li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 17px;
+        }
+        
+        .offer-box li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ffd700;
             font-weight: bold;
-        }
-        
-        .step-description {
-            color: #555;
-            font-size: 16px;
-            line-height: 1.6;
+            font-size: 20px;
         }
         
         .cta-section {
-            background-color: #f9f9f9;
-            padding: 80px 20px;
             text-align: center;
-        }
-        
-        .cta-title {
-            color: #1A3A5C;
-            font-size: 38px;
-            margin-bottom: 25px;
-            font-weight: bold;
-        }
-        
-        .cta-description {
-            font-size: 20px;
-            color: #555;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 10px;
         }
         
         .cta-button {
@@ -243,167 +180,172 @@
             color: white;
             padding: 20px 50px;
             font-size: 22px;
-            font-weight: bold;
             text-decoration: none;
             border-radius: 50px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(26, 58, 92, 0.3);
+            font-weight: bold;
+            box-shadow: 0 5px 20px rgba(26, 58, 92, 0.3);
         }
         
         .cta-button:hover {
             background-color: #2d5a8c;
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(26, 58, 92, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(26, 58, 92, 0.4);
         }
         
-        .guarantee {
-            margin-top: 40px;
-            font-size: 16px;
+        .cta-section h2 {
+            color: #1A3A5C;
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
             color: #666;
-            font-style: italic;
+            margin-bottom: 30px;
         }
         
         footer {
             background-color: #1A3A5C;
             color: white;
-            padding: 30px 20px;
             text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
         }
         
-        .company-info {
-            background-color: #e8f4f8;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        
-        .company-info strong {
-            color: #1A3A5C;
-            font-size: 18px;
+        .step-number {
+            background: #1A3A5C;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
         }
         
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 32px;
+                font-size: 28px;
             }
             
             .hero .company-name {
                 font-size: 22px;
             }
             
-            .section-title {
-                font-size: 28px;
+            .section {
+                padding: 30px 20px;
             }
             
-            .cards-container {
-                grid-template-columns: 1fr;
+            .section h2 {
+                font-size: 24px;
             }
             
-            .process-steps {
-                grid-template-columns: 1fr;
+            .pain-item h3, .gain-item h3, .step-item h3 {
+                font-size: 20px;
             }
             
-            .price-tag {
+            .offer-price {
                 font-size: 42px;
+            }
+            
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 18px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
+    <header>
+        <div class="container">
             <div class="logo">LOGOS IMPACT</div>
-        </header>
-        
-        <div class="hero">
-            <div class="company-name">RENOV ACTION PROPRETE</div>
-            <p>SIREN: 524177110</p>
-            <h1>Transformez votre entreprise de nettoyage avec l'Intelligence Artificielle</h1>
-            <p>Une proposition exclusive pour optimiser vos opérations et booster votre rentabilité</p>
         </div>
-        
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <div class="company-name">RENOV ACTION PROPRETE</div>
+            <h1>Transformez votre entreprise de nettoyage<br>avec l'Intelligence Artificielle</h1>
+            <p>Optimisez vos opérations et multipliez votre rentabilité grâce à l'IA</p>
+        </div>
+    </div>
+
+    <div class="container">
         <!-- SECTION 1: DOULEURS -->
         <div class="section">
-            <h2 class="section-title">🎯 Les Défis de RENOV ACTION PROPRETE</h2>
-            <p class="section-subtitle">Dans le secteur du nettoyage, vous faites face quotidiennement à des défis opérationnels qui impactent votre rentabilité et votre croissance</p>
-            
-            <div class="cards-container">
-                <div class="card">
-                    <div class="card-icon">⏰</div>
-                    <div class="card-title">Gestion des plannings complexe</div>
-                    <div class="card-description">
-                        La coordination des équipes, l'optimisation des tournées et l'ajustement des plannings en temps réel selon les absences ou demandes urgentes vous font perdre <strong>15-20 heures par semaine</strong>. Les erreurs d'allocation créent des temps morts coûteux et de l'insatisfaction client.
-                    </div>
+            <h2>Les Défis Quotidiens de Votre Entreprise</h2>
+            <div class="pain-points">
+                <div class="pain-item">
+                    <h3><span class="icon">⏱️</span> Gestion du Planning et Optimisation des Tournées</h3>
+                    <p>La planification manuelle des interventions génère des pertes de temps considérables. Les trajets non optimisés entre les sites augmentent vos coûts de déplacement de <strong>25 à 35%</strong>. Les retards et chevauchements d'interventions créent de l'insatisfaction client et réduisent votre capacité à accepter de nouveaux contrats. Le temps passé à coordonner les équipes pourrait être investi dans le développement commercial.</p>
                 </div>
                 
-                <div class="card">
-                    <div class="card-icon">📋</div>
-                    <div class="card-title">Traçabilité et reporting chronophages</div>
-                    <div class="card-description">
-                        La collecte manuelle des rapports d'intervention, la gestion des réclamations, et la production de comptes-rendus client mobilisent un temps précieux. <strong>30% de votre temps administratif</strong> est consacré à des tâches répétitives qui pourraient être automatisées.
-                    </div>
+                <div class="pain-item">
+                    <h3><span class="icon">📋</span> Suivi Qualité et Reporting Client</h3>
+                    <p>Le contrôle qualité sur les sites clients reste superficiel et chronophage. La création manuelle des rapports d'intervention prend <strong>2 à 3 heures par jour</strong> à vos équipes administratives. Les réclamations clients ne sont pas toujours tracées efficacement, créant des tensions et des risques de résiliation de contrats. L'absence de preuves photographiques et de traçabilité détaillée fragilise votre position en cas de litige.</p>
                 </div>
                 
-                <div class="card">
-                    <div class="card-icon">💰</div>
-                    <div class="card-title">Contrôle des coûts et marges serrées</div>
-                    <div class="card-description">
-                        Dans un secteur à faible marge, chaque inefficacité impacte directement votre rentabilité. La surconsommation de produits, les trajets non optimisés et le manque de visibilité en temps réel sur les performances vous font perdre <strong>10-15% de marge potentielle</strong>.
-                    </div>
+                <div class="pain-item">
+                    <h3><span class="icon">💰</span> Contrôle des Coûts et Rentabilité par Contrat</h3>
+                    <p>L'analyse de la rentabilité réelle par client et par contrat reste approximative. Le suivi des consommations de produits et fournitures manque de précision, générant un gaspillage estimé à <strong>15-20% du budget achats</strong>. Les heures supplémentaires non anticipées réduisent vos marges. Sans tableaux de bord en temps réel, vous pilotez votre activité avec plusieurs semaines de retard, limitant votre réactivité face aux dérives.</p>
                 </div>
             </div>
         </div>
-        
+
         <!-- SECTION 2: GAINS IA -->
         <div class="section">
-            <h2 class="section-title">🚀 Comment l'IA Transforme RENOV ACTION PROPRETE</h2>
-            <p class="section-subtitle">Des solutions concrètes et mesurables pour chaque défi opérationnel</p>
-            
-            <div class="cards-container">
-                <div class="card gains-card">
-                    <div class="card-icon">🤖</div>
-                    <div class="card-title">Optimisation intelligente des plannings</div>
-                    <div class="card-description">
-                        L'IA analyse automatiquement les contraintes (disponibilités, compétences, géolocalisation) et génère des plannings optimisés en quelques secondes. Réallocation automatique en cas d'imprévu. 
-                        <br><br>
-                        <strong>Impact direct :</strong> Réduction de 85% du temps de planification, amélioration de 25% de la productivité des équipes, diminution de 40% des kilomètres parcourus.
-                    </div>
-                    <div class="gain-metric">⏱️ 15h économisées/semaine</div>
+            <h2>Comment l'IA Transforme Votre Activité</h2>
+            <div class="gains-list">
+                <div class="gain-item">
+                    <h3><span class="icon">🤖</span> Optimisation Automatique des Tournées</h3>
+                    <p>Un système d'IA analyse en temps réel tous vos contrats, la localisation des sites et les contraintes horaires pour générer automatiquement les plannings optimaux. L'algorithme prend en compte le trafic, les priorités clients et les compétences de chaque agent pour minimiser les temps de trajet et maximiser le nombre d'interventions quotidiennes.</p>
+                    <div class="gain-metric">⏱️ Gain de temps : 8 à 12 heures/semaine sur la planification</div>
+                    <div class="gain-metric">🚗 Réduction des coûts de déplacement : 25 à 30%</div>
+                    <div class="gain-metric">📈 Capacité d'interventions augmentée : +15 à 20%</div>
                 </div>
                 
-                <div class="card gains-card">
-                    <div class="card-icon">📊</div>
-                    <div class="card-title">Automatisation du reporting et traçabilité</div>
-                    <div class="card-description">
-                        Applications mobiles avec reconnaissance vocale ou photo pour saisie instantanée. Génération automatique de rapports personnalisés par client. Tableaux de bord en temps réel sur les KPIs. Alertes automatiques sur les anomalies.
-                        <br><br>
-                        <strong>Impact direct :</strong> 80% de réduction du temps administratif, satisfaction client en hausse de 35%, traitement des réclamations 3x plus rapide.
-                    </div>
-                    <div class="gain-metric">💼 30% du temps admin libéré</div>
+                <div class="gain-item">
+                    <h3><span class="icon">📸</span> Reporting Intelligent et Automatisé</h3>
+                    <p>Vos agents utilisent une application mobile qui génère automatiquement des rapports enrichis : photos avant/après analysées par IA, reconnaissance des surfaces nettoyées, détection automatique des anomalies. Les rapports sont envoyés instantanément aux clients avec horodatage et géolocalisation, créant une traçabilité complète et valorisant votre travail.</p>
+                    <div class="gain-metric">⏱️ Temps de reporting divisé par 5</div>
+                    <div class="gain-metric">😊 Satisfaction client augmentée de 35%</div>
+                    <div class="gain-metric">📊 Traçabilité complète à 100% des interventions</div>
                 </div>
                 
-                <div class="card gains-card">
-                    <div class="card-icon">💎</div>
-                    <div class="card-title">Optimisation des coûts et marges</div>
-                    <div class="card-description">
-                        IA prédictive pour la consommation de produits selon les surfaces et types d'intervention. Analyse des performances par site/agent/client. Détection automatique des dérives de coûts. Recommandations d'amélioration continue.
-                        <br><br>
-                        <strong>Impact direct :</strong> Réduction de 20% de la surconsommation de produits, augmentation de 12-18% de la marge nette, visibilité complète sur la rentabilité par contrat.
-                    </div>
-                    <div class="gain-metric">📈 +15% de marge récupérable</div>
+                <div class="gain-item">
+                    <h3><span class="icon">📊</span> Pilotage Financier en Temps Réel</h3>
+                    <p>Un tableau de bord IA agrège automatiquement toutes vos données : temps passé, produits consommés, coûts de déplacement par contrat. L'IA détecte les dérives de rentabilité et vous alerte immédiatement. Vous visualisez en un clic quels contrats sont les plus profitables et identifiez les opportunités d'optimisation ou de renégociation tarifaire.</p>
+                    <div class="gain-metric">💰 Amélioration de la marge globale : 8 à 12%</div>
+                    <div class="gain-metric">📉 Réduction du gaspillage de fournitures : 15 à 20%</div>
+                    <div class="gain-metric">⚡ Décisions éclairées en temps réel au lieu de 3-4 semaines</div>
                 </div>
             </div>
         </div>
-        
+
         <!-- SECTION 3: OFFRE AUDIT -->
-        <div class="section audit-section">
-            <h2 class="section-title">🔍 Audit IA Personnalisé pour RENOV ACTION PROPRETE</h2>
-            <p class="section-subtitle">Un diagnostic complet de votre potentiel d'optimisation par l'Intelligence Artificielle</p>
+        <div class="section">
+            <h2>Audit IA Personnalisé pour RENOV ACTION PROPRETE</h2>
             
-            <div class="price-tag">950€ HT</div>
-            <div class="price-subtitle">Investissement remboursable dès la première optimisation mise en place</div>
-            
-            <div class="process-steps">
-                <div class="step">
-                    <div class="step-number">
+            <div class="offer-box">
+                <h3 style="font-size: 28px; margin-bottom: 15px;">Audit Opérationnel IA</h3>
+                <div class="offer-price">950€ HT</div>
+                <p style="font-size: 18px; margin-bottom: 25px;">Investissement unique pour identifier vos gains potentiels</p>
+                
+                <ul>
+                    <li>Analyse complète de vos processus opérationnels actuels</li>
+                    <li>Identification des gisements d'optimisation par l'IA</li>
+                    <li>Calcul du ROI personnalisé pour votre entreprise</li>
+                    <li>Plan de déploiement sur mesure en 3 phases</li>
+                    <li>Benchmark sectoriel et meilleures pratiques</li>
+                    <li>Rapport détaillé avec recommandations actionnables</li>
+                </ul>
+            </div>
+
+            <div class="audit-steps">
+                <div class="step-item">
+                    <h3><span class="step-number">1</span> Phase de Diagnostic</h3>
+                    <p><strong>Durée : 1 semaine</strong><br>
+                    Entretiens approfondis avec votre équipe dirigeante et opérationnelle. Analyse de vos flux de travail, outils actuels, contrats types et structure de coûts. Observation terrain d
