@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analyse · {{ENTREPRISE}} · Logos-Impact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:      #0D1B2A;
+      --navy2:     #112236;
+      --navy3:     #162B42;
+      --gold:      #F5C518;
+      --gold2:     #D4A800;
+      --gold-dim:  rgba(245,197,24,0.12);
+      --white:     #FFFFFF;
+      --off-white: #E8EDF2;
+      --muted:     #8B9BB0;
+      --muted2:    #5A6B80;
+      --border:    rgba(255,255,255,0.07);
+      --border2:   rgba(255,255,255,0.12);
+      --green:     #27AE60;
+      --red:       #E74C3C;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ══ NAV ══ */
+    nav {
+      background: rgba(13,27,42,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      color: var(--white);
+    }
+
+    .nav-logo span { color: var(--gold); }
+
+    .nav-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 2.5s infinite;
+    }
+
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.8)} }
+
+    /* ══ HERO ══ */
+    .hero {
+      background: linear-gradient(160deg, #0D1B2A 0%, #112236 50%, #0D1B2A 100%);
+      padding: 80px 0 72px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,197,24,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold-dim);
+      border: 1px solid rgba(245,197,24,0.25);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 4px;
+      margin-bottom: 28px;
+    }
+
+    .hero-tag::before { content: '●'; font-size: 7px; }
+
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.08;
+      color: var(--white);
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 .gold { color: var(--gold); }
+
+    .hero-sub {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 620px;
+      line-height: 1.8;
+      margin-bottom: 48px;
+      font-weight: 400;
+    }
+
+    /* ══ FOUND BOAMP ══ */
+    .found {
+      background: var(--gold-dim);
+      border: 1px solid rgba(245,197,24,0.2);
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin-bottom: 48px;
+    }
+
+    .found-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .found-title::after { content: ''; flex: 1; height: 1px; background: rgba(245,197,24,0.2); }
+
+    .found-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+
+    .found-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted2);
+      margin-bottom: 4px;
+    }
+
+    .found-value {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--off-white);
+    }
+
+    .found-value.big {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 24px;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    /* ══ KPIs ══ */
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .kpi {
+      background: var(--navy2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 1s ease;
+    }
+
+    .kpi.animated::after { transform: scaleX(1); }
+
+    .kpi-val {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 52px;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+      margin-bottom: 8px;
+      letter-spacing: -0.03em;
+    }
+
+    .kpi-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      line-height: 1.4;
+      letter-spacing: 0.02em;
+    }
+
+    .kpi-sub {
+      font-size: 11px;
+      color: var(--muted2);
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    /* ══ AVANT APRÈS ══ */
+    .aa-wrap {
+      background: var(--navy2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 48px;
+    }
+
+    .aa-header {
+      display: grid;
+      grid-template-columns: 1fr 48px 1fr;
+      background: var(--navy3);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .aa-head-cell {
+      padding: 14px 24px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .aa-head-cell.before { color: var(--muted); }
+    .aa-head-cell.after  { color: var(--gold); }
+    .aa-head-arrow { display: flex; align-items: center; justify-content: center; color: var(--muted2); font-size: 16px; }
+
+    .aa-body {
+      display: grid;
+      grid-template-columns: 1fr 48px 1fr;
+    }
+
+    .aa-col { padding: 24px; }
+
+    .aa-divider-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--navy3);
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+    }
+
+    .aa-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .aa-row:last-of-type { border-bottom: none; }
+
+    .aa-row-label { font-size: 13px; color: var(--muted); }
+
+    .aa-row-val {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .aa-col.before .aa-row-val { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--red); }
+    .aa-col.after .aa-row-val  { color: var(--gold); }
+
+    .aa-total {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 2px solid var(--border2);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .aa-total-label { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--off-white); }
+
+    .aa-total-val {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+    }
+
+    .aa-col.before .aa-total-val { color: var(--muted); }
+    .aa-col.after .aa-total-val  { color: var(--gold); }
+
+    /* ══ CTAs HERO ══ */
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .btn-primary {
+      flex: 1; min-width: 220px;
+      background: var(--gold);
+      color: var(--navy);
+      text-align: center;
+      padding: 16px 28px;
+      border-radius: 4px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+    }
+
+    .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); }
+
+    .btn-secondary {
+      flex: 1; min-width: 200px;
+      border: 2px solid var(--border2);
+      color: var(--off-white);
+      text-align: center;
+      padding: 14px 28px;
+      border-radius: 4px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      transition: border-color .2s, color .2s;
+    }
+
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ══ SECTIONS ══ */
+    .section-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    section { padding: 80px 0; border-bottom: 1px solid var(--border); }
+
+    section:last-of-type { border-bottom: none; }
+
+    .section-tag {
+      display: inline-block;
+      background: var(--gold-dim);
+      border: 1px solid rgba(245,197,24,0.2);
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: clamp(26px, 3.5vw, 40px);
+      line-height: 1.1;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    h2 .gold { color: var(--gold); }
+
+    .section-intro {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 580px;
+      line-height: 1.8;
+      margin-bottom: 44px;
+    }
+
+    /* ══ QUICK WINS ══ */
+    .qw-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .qw-card {
+      background: var(--navy2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px 24px;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .qw-card:hover { border-color: rgba(245,197,24,0.3); transform: translateY(-3px); }
+
+    .qw-num {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 48px;
+      color: rgba(245,197,24,0.1);
+      line-height: 1;
+      margin-bottom: 20px;
+      letter-spacing: -0.04em;
+    }
+
+    .qw-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--white);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .qw-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .qw-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(39,174,96,0.1);
+      border: 1px solid rgba(39,174,96,0.25);
+      color: #5EC98B;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 4px;
+    }
+
+    /* ══ CALLOUTS ══ */
+    .callout {
+      border-left: 3px solid rgba(245,197,24,0.4);
+      padding: 16px 20px;
+      background: var(--navy2);
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 14px;
+    }
+
+    .callout-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .callout p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+    .callout.warn { border-left-color: var(--red); }
+    .callout.warn .callout-title { color: #E87070; }
+
+    /* ══ RAG ══ */
+    .rag {
+      background: var(--navy2);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--gold);
+      border-radius: 8px;
+      padding: 40px;
+    }
+
+    .rag-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 22px;
+      color: var(--white);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .rag-title .gold { color: var(--gold); }
+
+    .rag-intro {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 36px;
+      max-width: 560px;
+    }
+
+    /* ══ FUNNEL VERTICAL ══ */
+    .funnel { display: flex; flex-direction: column; gap: 0; }
+
+    .funnel-arrow {
+      text-align: center;
+      font-size: 24px;
+      color: var(--gold);
+      opacity: 0.5;
+      padding: 8px 0;
+      line-height: 1;
+    }
+
+    .funnel-step {
+      background: var(--navy3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .funnel-step.gold-step {
+      border-color: rgba(245,197,24,0.3);
+      background: var(--gold-dim);
+    }
+
+    .funnel-step-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .funnel-step.gold-step .funnel-step-header {
+      border-bottom-color: rgba(245,197,24,0.15);
+    }
+
+    .funnel-step-num {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 32px;
+      color: rgba(255,255,255,0.08);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 44px;
+    }
+
+    .funnel-step-num.gold-num { color: rgba(245,197,24,0.25); }
+
+    .funnel-step-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--white);
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+
+    .funnel-step-title.gold-title { color: var(--gold); }
+
+    .funnel-step-sub {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .funnel-step-body { padding: 18px 24px; }
+
+    /* Doc grid */
+    .funnel-doc-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .funnel-doc {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      background: var(--navy);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .funnel-doc span { font-size: 15px; flex-shrink: 0; }
+
+    /* Tags */
+    .funnel-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .funnel-tag {
+      background: rgba(245,197,24,0.1);
+      border: 1px solid rgba(245,197,24,0.2);
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 4px;
+    }
+
+    /* Gain avant/après */
+    .funnel-gain {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .funnel-gain-before,
+    .funnel-gain-after {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .funnel-gain-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted2);
+    }
+
+    .funnel-gain-val {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+    }
+
+    .muted-val { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--red); }
+    .gold-val  { color: var(--gold); }
+
+    .funnel-gain-arrow {
+      font-size: 20px;
+      color: var(--muted2);
+    }
+
+    .funnel-gain-badge {
+      margin-left: auto;
+      background: rgba(39,174,96,0.12);
+      border: 1px solid rgba(39,174,96,0.25);
+      color: #5EC98B;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 4px;
+    }
+
+    /* Human */
+    .funnel-human {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .funnel-human-badge {
+      background: rgba(245,197,24,0.1);
+      border: 1px solid rgba(245,197,24,0.25);
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 4px;
+    }
+
+    .funnel-human-text {
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* Résultat final */
+    .funnel-result {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: var(--navy2);
+      border: 2px solid rgba(245,197,24,0.3);
+      border-radius: 8px;
+      padding: 24px 28px;
+    }
+
+    .funnel-result-icon { font-size: 32px; flex-shrink: 0; }
+
+    .funnel-result-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--white);
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .funnel-result-sub {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 640px) {
+      .funnel-doc-grid { grid-template-columns: 1fr; }
+      .funnel-gain-badge { margin-left: 0; }
+      .funnel-result { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+
+    .rag-outcomes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 12px;
+    }
+
+    .rag-out {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+      background: var(--navy3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    .rag-out-icon {
+      width: 36px; height: 36px;
+      border-radius: 6px;
+      background: var(--gold-dim);
+      border: 1px solid rgba(245,197,24,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .rag-out-title { font-size: 13px; font-weight: 700; color: var(--white); line-height: 1.3; }
+    .rag-out-sub { font-size: 11px; color: var(--muted2); margin-top: 3px; }
+
+    /* ══ OFFRE ══ */
+    .offre {
+      background: var(--navy2);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--gold);
+      border-radius: 8px;
+      padding: 40px;
+      margin-bottom: 16px;
+    }
+
+    .offre-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .offre-price {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 64px;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .offre-price-sub { font-size: 13px; color: var(--muted); margin-top: 4px; font-weight: 500; }
+
+    .offre-pill {
+      background: var(--gold-dim);
+      border: 1px solid rgba(245,197,24,0.25);
+      color: var(--gold);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 18px;
+      border-radius: 4px;
+      align-self: flex-start;
+    }
+
+    .offre-list { list-style: none; margin-bottom: 28px; }
+
+    .offre-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .offre-list li:last-child { border-bottom: none; }
+
+    .offre-list li::before {
+      content: '✓';
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .offre-mention {
+      font-size: 12px;
+      color: var(--muted2);
+      font-style: italic;
+      margin-bottom: 28px;
+      padding: 12px 16px;
+      background: var(--navy3);
+      border-radius: 4px;
+      border-left: 2px solid var(--border2);
+    }
+
+    .btn-block {
+      display: block;
+      background: var(--gold);
+      color: var(--navy);
+      text-align: center;
+      padding: 18px 28px;
+      border-radius: 4px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+      margin-bottom: 12px;
+    }
+
+    .btn-block:hover { background: var(--gold2); transform: translateY(-2px); }
+
+    .btn-block-outline {
+      display: block;
+      border: 2px solid var(--border2);
+      color: var(--off-white);
+      text-align: center;
+      padding: 16px 28px;
+      border-radius: 4px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      transition: border-color .2s, color .2s;
+    }
+
+    .btn-block-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .engagement {
+      font-size: 13px;
+      color: var(--muted2);
+      font-style: italic;
+      text-align: center;
+      margin-top: 24px;
+      line-height: 1.7;
+    }
+
+    /* ══ FOOTER ══ */
+    footer {
+      background: var(--navy3);
+      border-top: 1px solid var(--border);
+      padding: 28px 32px;
+    }
+
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 16px;
+      color: var(--muted2);
+      letter-spacing: -0.01em;
+    }
+
+    .footer-logo span { color: var(--gold); opacity: 0.6; }
+
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+
+    .footer-links a {
+      font-size: 12px;
+      color: var(--muted2);
+      text-decoration: none;
+      transition: color .15s;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    /* ══ ANIMATIONS ══ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+
+    .reveal.on { opacity: 1; transform: none; }
+
+    @media (max-width: 640px) {
+      .hero-inner, .section-wrap, .footer-inner { padding: 0 20px; }
+      h1 { font-size: 30px; }
+      .kpis { grid-template-columns: repeat(3,1fr); gap: 10px; }
+      .kpi-val { font-size: 36px; }
+      .kpi { padding: 20px 12px; }
+      .aa-body { grid-template-columns: 1fr; }
+      .aa-divider-col { display: none; }
+      .aa-header { grid-template-columns: 1fr 1fr; }
+      .aa-head-arrow { display: none; }
+      .rag, .offre { padding: 24px; }
+      .offre-price { font-size: 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">LOGOS-<span>IMPACT</span></span>
+    <span class="nav-badge"><span class="nav-dot"></span>Analyse confidentielle</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+
+    <div class="hero-tag reveal">Analyse opérationnelle · {{ENTREPRISE}}</div>
+
+    <h1 class="reveal">
+      Libérer <span class="gold">{{HEURES_LIBEREES}} heures</span> par an<br>pour répondre à plus de marchés — et mieux.
+    </h1>
+
+    <p class="hero-sub reveal">{{INTRO}}</p>
+
+    <!-- FOUND -->
+    <div class="found reveal">
+      <div class="found-title">Ce que l'analyse BOAMP révèle sur {{ENTREPRISE}}</div>
+      <div class="found-grid">
+        <div>
+          <div class="found-label">Dernier marché remporté</div>
+          <div class="found-value">{{MARCHE_REMPORTE}}</div>
+        </div>
+        <div>
+          <div class="found-label">Acheteur public</div>
+          <div class="found-value">{{ACHETEUR}}</div>
+        </div>
+        <div>
+          <div class="found-label">Montant attribué</div>
+          <div class="found-value big">{{MONTANT}} €</div>
+        </div>
+        <div>
+          <div class="found-label">AO estimés / an</div>
+          <div class="found-value big">{{NB_AO}}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="kpis reveal">
+      <div class="kpi">
+        <span class="kpi-val" data-target="HEURES_LIBEREES_VAL">{{HEURES_LIBEREES}}</span>
+        <div class="kpi-label">heures libérées / an</div>
+        <div class="kpi-sub">pour {{ENTREPRISE}}</div>
+      </div>
+      <div class="kpi">
+        <span class="kpi-val" data-target="30">30</span>
+        <div class="kpi-label">min · analyse DCE</div>
+        <div class="kpi-sub">vs 6h manuellement</div>
+      </div>
+      <div class="kpi">
+        <span class="kpi-val" data-target="70">70</span>
+        <div class="kpi-label">% temps rédaction récupéré</div>
+        <div class="kpi-sub">estimation sectorielle</div>
+      </div>
+    </div>
+
+    <!-- AVANT / APRÈS -->
+    <div class="aa-wrap reveal">
+      <div class="aa-header">
+        <div class="aa-head-cell before">Aujourd'hui — Manuel</div>
+        <div class="aa-head-arrow">→</div>
+        <div class="aa-head-cell after">Avec IA — Assisté</div>
+      </div>
+      <div class="aa-body">
+        <div class="aa-col before">
+          <div class="aa-row"><span class="aa-row-label">Analyse DCE</span><span class="aa-row-val">6 h</span></div>
+          <div class="aa-row"><span class="aa-row-label">Recherche docs</span><span class="aa-row-val">4 h</span></div>
+          <div class="aa-row"><span class="aa-row-label">Rédaction mémoire</span><span class="aa-row-val">15 h</span></div>
+          <div class="aa-row"><span class="aa-row-label">Conformité</span><span class="aa-row-val">4 h</span></div>
+          <div class="aa-total">
+            <span class="aa-total-label">Par dossier</span>
+            <span class="aa-total-val">29 h</span>
+          </div>
+        </div>
+        <div class="aa-divider-col">→</div>
+        <div class="aa-col after">
+          <div class="aa-row"><span class="aa-row-label">Analyse DCE</span><span class="aa-row-val">30 min</span></div>
+          <div class="aa-row"><span class="aa-row-label">Recherche docs</span><span class="aa-row-val">20 min</span></div>
+          <div class="aa-row"><span class="aa-row-label">Rédaction mémoire</span><span class="aa-row-val">2 h</span></div>
+          <div class="aa-row"><span class="aa-row-label">Conformité</span><span class="aa-row-val">30 min</span></div>
+          <div class="aa-total">
+            <span class="aa-total-label">Par dossier</span>
+            <span class="aa-total-val">3,5 h</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-row reveal">
+      <a href="https://book.stripe.com/aFa7sKfqe0Rc9xRb2daEE04" class="btn-primary">Commander l'Audit — 950 € HT</a>
+      <a href="https://calendly.com/contact-logos-impact/diagnostic-strategique-15-min" class="btn-secondary">Échanger 15 minutes</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- SECTION 1 : QUICK WINS -->
+<section>
+  <div class="section-wrap">
+    <span class="section-tag reveal">Optimisation immédiate</span>
+    <h2 class="reveal">3 leviers activables rapidement<br><span class="gold">— sans investissement technique</span></h2>
+    <p class="section-intro reveal">
+      Avant même de déployer une base documentaire complète, trois gains concrets sont accessibles en quelques jours pour {{ENTREPRISE}}.
+    </p>
+
+    <div class="qw-grid">
+      <div class="qw-card reveal">
+        <div class="qw-num">01</div>
+        <div class="qw-title">Analyse Flash DCE</div>
+        <div class="qw-desc">Un agent IA lit l'intégralité du cahier des charges et restitue un tableau structuré : critères de jugement, pièces obligatoires, clauses de pénalité, points de risque RSE. La vérification humaine reste intégrée.</div>
+        <span class="qw-badge">↑ 6 h → 30 min par dossier</span>
+      </div>
+
+      <div class="qw-card reveal">
+        <div class="qw-num">02</div>
+        <div class="qw-title">Veille marchés automatisée</div>
+        <div class="qw-desc">Surveillance quotidienne du BOAMP et des plateformes régionales selon vos critères : zone, montant, type de prestation. Les opportunités pertinentes arrivent directement — aucun marché manqué.</div>
+        <span class="qw-badge">↑ Alertes quotidiennes · 7j/7</span>
+      </div>
+
+      <div class="qw-card reveal">
+        <div class="qw-num">03</div>
+        <div class="qw-title">Scoring Go / No-Go IA</div>
+        <div class="qw-desc">Pour chaque AO détecté, un score de compatibilité est calculé automatiquement : zone, profil acheteur, concurrents identifiés, budget estimé. Vous concentrez votre énergie sur les dossiers à fort potentiel.</div>
+        <span class="qw-badge">↑ Priorité aux dossiers gagnables</span>
+      </div>
+    </div>
+
+    <div class="callout reveal">
+      <div class="callout-title">Analyse opérationnelle</div>
+      <p>{{ANALYSE}}</p>
+    </div>
+
+    <div class="callout warn reveal">
+      <div class="callout-title">Clause à risque identifiée</div>
+      <p>{{CLAUSE_RISQUE}}</p>
+    </div>
+
+    <div class="callout reveal">
+      <div class="callout-title">Environnement concurrentiel</div>
+      <p>{{CONCURRENTS}}</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2 : RAG -->
+<section>
+  <div class="section-wrap">
+    <span class="section-tag reveal">Solution documentaire</span>
+    <h2 class="reveal">Une base de connaissance interne<br><span class="gold">connectée à l'IA</span></h2>
+    <p class="section-intro reveal">
+      Vos mémoires gagnants, certifications, process RSE et fiches métier indexés dans une base privée. L'IA génère 70 % du mémoire technique à partir de vos propres données — jamais de sources externes.
+    </p>
+
+    <div class="rag reveal">
+      <div class="rag-title">Comment ça fonctionne pour <span class="gold">{{ENTREPRISE}}</span></div>
+      <div class="rag-intro">
+        Vos documents internes alimentent une base de connaissance structurée. À chaque appel d'offres, l'agent IA produit une V1 du mémoire technique en puisant uniquement dans cette base. Le bureau d'études révise, ajuste et valide avant tout dépôt.
+      </div>
+
+      <!-- FUNNEL VERTICAL -->
+      <div class="funnel">
+
+        <!-- ÉTAPE 1 -->
+        <div class="funnel-step">
+          <div class="funnel-step-header">
+            <div class="funnel-step-num">01</div>
+            <div>
+              <div class="funnel-step-title">Vos documents internes sont indexés</div>
+              <div class="funnel-step-sub">Une seule fois au démarrage — puis mis à jour à chaque nouveau dossier</div>
+            </div>
+          </div>
+          <div class="funnel-step-body">
+            <div class="funnel-doc-grid">
+              <div class="funnel-doc"><span>📄</span> Mémoires techniques gagnants</div>
+              <div class="funnel-doc"><span>🏅</span> Certifications ISO / RSE / écolabels</div>
+              <div class="funnel-doc"><span>🗂️</span> Fiches process & métier</div>
+              <div class="funnel-doc"><span>📋</span> Références clients & attestations</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="funnel-arrow">↓</div>
+
+        <!-- ÉTAPE 2 -->
+        <div class="funnel-step gold-step">
+          <div class="funnel-step-header">
+            <div class="funnel-step-num gold-num">02</div>
+            <div>
+              <div class="funnel-step-title gold-title">⚡ Base IA privée — indexation automatique</div>
+              <div class="funnel-step-sub">Votre savoir-faire structuré, interrogeable en quelques secondes</div>
+            </div>
+          </div>
+          <div class="funnel-step-body">
+            <div class="funnel-tags">
+              <span class="funnel-tag">Données 100 % internes</span>
+              <span class="funnel-tag">Aucune source externe</span>
+              <span class="funnel-tag">RGPD conforme</span>
+              <span class="funnel-tag">Capital qui s'enrichit à chaque dossier</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="funnel-arrow">↓</div>
+
+        <!-- ÉTAPE 3 -->
+        <div class="funnel-step">
+          <div class="funnel-step-header">
+            <div class="funnel-step-num">03</div>
+            <div>
+              <div class="funnel-step-title">L'IA génère la V1 du mémoire technique</div>
+              <div class="funnel-step-sub">En puisant uniquement dans votre base — pas de données génériques</div>
+            </div>
+          </div>
+          <div class="funnel-step-body">
+            <div class="funnel-gain">
+              <div class="funnel-gain-before">
+                <span class="funnel-gain-label">Avant</span>
+                <span class="funnel-gain-val muted-val">15 h de rédaction</span>
+              </div>
+              <div class="funnel-gain-arrow">→</div>
+              <div class="funnel-gain-after">
+                <span class="funnel-gain-label">Avec IA</span>
+                <span class="funnel-gain-val gold-val">2 h de rédaction</span>
+              </div>
+              <div class="funnel-gain-badge">− 87 % de temps</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="funnel-arrow">↓</div>
+
+        <!-- ÉTAPE 4 -->
+        <div class="funnel-step">
+          <div class="funnel-step-header">
+            <div class="funnel-step-num">04</div>
+            <div>
+              <div class="funnel-step-title">Révision & validation humaine obligatoire</div>
+              <div class="funnel-step-sub">Le bureau d'études ajuste, personnalise et valide avant tout dépôt</div>
+            </div>
+          </div>
+          <div class="funnel-step-body">
+            <div class="funnel-human">
+              <span class="funnel-human-badge">✓ Décision humaine</span>
+              <span class="funnel-human-text">L'IA prépare · Vous décidez · Vous signez</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="funnel-arrow">↓</div>
+
+        <!-- RÉSULTAT FINAL -->
+        <div class="funnel-result">
+          <div class="funnel-result-icon">📤</div>
+          <div>
+            <div class="funnel-result-title">Dossier de candidature finalisé — déposé dans les délais</div>
+            <div class="funnel-result-sub">Cohérent avec vos références · Conforme aux exigences du DCE · Qualité constante à chaque AO</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="rag-outcomes">
+        <div class="rag-out"><div class="rag-out-icon">⏱</div><div><div class="rag-out-title">15 h → 2 h de rédaction</div><div class="rag-out-sub">par dossier · estimation sectorielle</div></div></div>
+        <div class="rag-out"><div class="rag-out-icon">🎯</div><div><div class="rag-out-title">Cohérence garantie</div><div class="rag-out-sub">même style, mêmes références</div></div></div>
+        <div class="rag-out"><div class="rag-out-icon">🔒</div><div><div class="rag-out-title">Données 100 % internes</div><div class="rag-out-sub">aucune source externe · RGPD</div></div></div>
+        <div class="rag-out"><div class="rag-out-icon">📈</div><div><div class="rag-out-title">Capital qui s'enrichit</div><div class="rag-out-sub">chaque dossier renforce la base</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 : OFFRE -->
+<section>
+  <div class="section-wrap">
+    <span class="section-tag reveal">Accompagnement</span>
+    <h2 class="reveal">Audit de Performance Documentaire</h2>
+    <p class="section-intro reveal">
+      Un diagnostic structuré pour identifier précisément vos gisements de gain et définir la feuille de route adaptée à {{ENTREPRISE}}.
+    </p>
+
+    <div class="offre reveal">
+      <div class="offre-head">
+        <div>
+          <div class="offre-price">950 <span style="font-size:30px;opacity:.6">€</span></div>
+          <div class="offre-price-sub">HT · Paiement sécurisé · Résultats sous 5 jours</div>
+        </div>
+        <span class="offre-pill">Dédié à {{ENTREPRISE}}</span>
+      </div>
+
+      <ul class="offre-list">
+        <li>Analyse sur extraits ou documents anonymisés — échantillon représentatif de vos AO</li>
+        <li>Audit du capital documentaire existant — mémoires, certifications, process, fiches métier</li>
+        <li>Radar de maturité IA sur 5 axes stratégiques</li>
+        <li>Estimation des ressources mobilisées sur votre cycle de réponse AO</li>
+        <li>Feuille de route opérationnelle personnalisée, priorisée et chiffrée</li>
+      </ul>
+
+      <div class="offre-mention">Aucun accès complet aux données sensibles requis pour démarrer.</div>
+
+      <a href="https://book.stripe.com/aFa7sKfqe0Rc9xRb2daEE04" class="btn-block">Commander l'Audit — 950 € HT</a>
+    </div>
+
+    <a href="https://calendly.com/contact-logos-impact/diagnostic-strategique-15-min" class="btn-block-outline reveal">Échanger 15 minutes gratuitement — sans engagement</a>
+
+    <p class="engagement">
+      Conçu pour identifier les principaux gains de temps et de capacité documentaire,<br>
+      et en estimer l'ordre de grandeur annuel pour {{ENTREPRISE}}.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">LOGOS-<span>IMPACT</span></span>
+    <div class="footer-links">
+      <a href="https://docs.google.com/document/d/1-EJfdoHVsj6rHKzponAkasa9OtvSslmb86xx_uMDncU/edit?usp=drive_link">Mentions légales</a>
+      <a href="mailto:contact@logos-impact.fr">contact@logos-impact.fr</a>
+      <a href="https://www.logos-impact.fr">logos-impact.fr</a>
+      <span style="font-size:11px;color:var(--muted2)">© 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // CountUp — lit la valeur affichée si data-target non numérique
+  function countUp(el) {
+    const raw = el.dataset.target || '';
+    const t = parseInt(raw.replace(/\D/g, '')) || parseInt(el.textContent) || 0;
+    if (!t) return;
+    const steps = 60, dur = 1400;
+    let cur = 0;
+    const inc = t / steps;
+    const timer = setInterval(() => {
+      cur = Math.min(cur + inc, t);
+      el.textContent = Math.floor(cur);
+      if (cur >= t) clearInterval(timer);
+    }, dur / steps);
+  }
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('on');
+        e.target.querySelectorAll('[data-target]').forEach(countUp);
+        e.target.querySelectorAll('.kpi').forEach(k => k.classList.add('animated'));
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Hero immédiat avec délais
+  document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+    setTimeout(() => el.classList.add('on'), i * 110);
+  });
+</script>
+
+</body>
+</html>
