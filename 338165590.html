@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyse Opérationnelle Confidentielle | Logos-Impact</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0F1117;
+            color: #E5E7EB;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3 {
+            font-family: Georgia, serif;
+            color: #D4A017;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-gold {
+            background: rgba(212, 160, 23, 0.15);
+            color: #D4A017;
+            border: 1px solid rgba(212, 160, 23, 0.3);
+        }
+        
+        .badge-red {
+            background: rgba(239, 68, 68, 0.15);
+            color: #EF4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .badge-purple {
+            background: rgba(168, 85, 247, 0.15);
+            color: #A855F7;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+        
+        /* Header */
+        header {
+            padding: 40px 0 80px;
+            background: linear-gradient(180deg, #0F1117 0%, #161B26 100%);
+        }
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 40px;
+        }
+        
+        .logo-svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: #FFFFFF;
+        }
+        
+        h1 span {
+            color: #D4A017;
+        }
+        
+        .intro {
+            font-size: 1.125rem;
+            color: #9CA3AF;
+            max-width: 800px;
+            margin-bottom: 48px;
+            line-height: 1.8;
+        }
+        
+        /* KPI Grid */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+        
+        .kpi-card {
+            background: #161B26;
+            border: 1px solid rgba(212, 160, 23, 0.2);
+            border-radius: 12px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .kpi-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212, 160, 23, 0.5);
+        }
+        
+        .kpi-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #D4A017;
+            font-family: Georgia, serif;
+            margin-bottom: 12px;
+        }
+        
+        .kpi-label {
+            font-size: 0.875rem;
+            color: #9CA3AF;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .kpi-sublabel {
+            font-size: 0.75rem;
+            color: #6B7280;
+            margin-top: 8px;
+            font-style: italic;
+        }
+        
+        /* Buttons */
+        .cta-container {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: #D4A017;
+            color: #0F1117;
+        }
+        
+        .btn-primary:hover {
+            background: #F4B825;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 160, 23, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #D4A017;
+            border: 2px solid #D4A017;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(212, 160, 23, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+            border-top: 1px solid rgba(212, 160, 23, 0.1);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            color: #FFFFFF;
+        }
+        
+        .section-intro {
+            font-size: 1.125rem;
+            color: #9CA3AF;
+            margin-bottom: 48px;
+            max-width: 800px;
+        }
+        
+        /* Diagnostic Table */
+        .diagnostic-table {
+            background: #161B26;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 32px;
+        }
+        
+        .diagnostic-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            padding: 24px;
+            border-bottom: 1px solid rgba(212, 160, 23, 0.1);
+        }
+        
+        .diagnostic-row:last-child {
+            border-bottom: none;
+        }
+        
+        .diagnostic-row:nth-child(even) {
+            background: rgba(212, 160, 23, 0.03);
+        }
+        
+        .diagnostic-label {
+            font-weight: 600;
+            color: #E5E7EB;
+        }
+        
+        .diagnostic-value {
+            color: #D4A017;
+            font-weight: 700;
+            text-align: right;
+        }
+        
+        /* Callout */
+        .callout {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 4px solid #EF4444;
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+        
+        .callout-title {
+            color: #EF4444;
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-size: 1.125rem;
+        }
+        
+        .callout-content {
+            color: #D1D5DB;
+            font-size: 0.9375rem;
+        }
+        
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+        
+        .feature-card {
+            background: #161B26;
+            border: 1px solid rgba(212, 160, 23, 0.2);
+            border-radius: 12px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            border-color: rgba(212, 160, 23, 0.5);
+            transform: translateY(-4px);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: #D4A017;
+        }
+        
+        .feature-card p {
+            color: #9CA3AF;
+            margin-bottom: 16px;
+        }
+        
+        .feature-highlight {
+            background: rgba(212, 160, 23, 0.1);
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 0.9375rem;
+            color: #D4A017;
+            font-weight: 600;
+        }
+        
+        /* ROI Table */
+        .roi-table {
+            background: #161B26;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 32px;
+        }
+        
+        .roi-header {
+            background: rgba(212, 160, 23, 0.1);
+            padding: 20px 24px;
+            font-weight: 700;
+            color: #D4A017;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 16px;
+        }
+        
+        .roi-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 16px;
+            padding: 20px 24px;
+            border-bottom: 1px solid rgba(212, 160, 23, 0.1);
+        }
+        
+        .roi-row:last-child {
+            border-bottom: none;
+            background: rgba(212, 160, 23, 0.05);
+            font-weight: 700;
+        }
+        
+        /* Process Steps */
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+        
+        .process-step {
+            background: #161B26;
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            border-left: 4px solid transparent;
+        }
+        
+        .process-step.automated {
+            border-left-color: #3B82F6;
+        }
+        
+        .process-step.human {
+            border-left-color: #D4A017;
+        }
+        
+        .step-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #D4A017;
+            font-family: Georgia, serif;
+            min-width: 60px;
+        }
+        
+        .step-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+        
+        .step-content p {
+            color: #9CA3AF;
+            font-size: 0.9375rem;
+        }
+        
+        .step-badge {
+            margin-left: auto;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .step-badge.automated {
+            background: rgba(59, 130, 246, 0.15);
+            color: #3B82F6;
+        }
+        
+        .step-badge.human {
+            background: rgba(212, 160, 23, 0.15);
+            color: #D4A017;
+        }
+        
+        .legend {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            color: #9CA3AF;
+        }
+        
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .legend-dot.blue {
+            background: #3B82F6;
+        }
+        
+        .legend-dot.gold {
+            background: #D4A017;
+        }
+        
+        /* Security Cards */
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+        
+        .security-card {
+            background: rgba(212, 160, 23, 0.05);
+            border: 1px solid rgba(212, 160, 23, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+        
+        .security-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+        
+        .security-card h4 {
+            color: #D4A017;
+            margin-bottom: 12px;
+            font-size: 1.125rem;
+        }
+        
+        .security-card p {
+            color: #9CA3AF;
+            font-size: 0.9375rem;
+        }
+        
+        /* Audit Section */
+        .audit-box {
+            background: linear-gradient(135deg, #161B26 0%, #1F2937 100%);
+            border: 2px solid #D4A017;
+            border-radius: 16px;
+            padding: 48px;
+            text-align: center;
+            margin-top: 48px;
+        }
+        
+        .audit-price {
+            font-size: 3.5rem;
+            color: #D4A017;
+            font-weight: 700;
+            font-family: Georgia, serif;
+            margin: 24px 0;
+        }
+        
+        .audit-price span {
+            font-size: 1.5rem;
+        }
+        
+        .audit-note {
+            color: #9CA3AF;
+            font-size: 0.9375rem;
+            margin-top: 24px;
+            font-style: italic;
+        }
+        
+        /* Footer */
+        footer {
+            background: #161B26;
+            padding: 48px 0;
+            text-align: center;
+            border-top: 1px solid rgba(212, 160, 23, 0.2);
+        }
+        
+        .footer-logo {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 24px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #9CA3AF;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #D4A017;
+        }
+        
+        .copyright {
+            color: #6B7280;
+            font-size: 0.875rem;
+            margin-top: 24px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .kpi-number {
+                font-size: 2.25rem;
+            }
+            
+            .diagnostic-row,
+            .roi-header,
+            .roi-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            
+            .diagnostic-value {
+                text-align: left;
+            }
+            
+            .process-step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-badge {
+                margin-left: 0;
+            }
+            
+            .audit-box {
+                padding: 32px 24px;
+            }
+            
+            .audit-price {
+                font-size: 2.5rem;
+            }
+            
+            .cta-container {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <svg class="logo logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#D4A017" stroke-width="2"/>
+                <path d="M30 50 L45 35 L60 50 L75 30" fill="none" stroke="#D4A017" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="45" cy="35" r="4" fill="#D4A017"/>
+                <circle cx="60" cy="50" r="4" fill="#D4A017"/>
+                <circle cx="75" cy="30" r="4" fill="#D4A017"/>
+            </svg>
+            
+            <div class="badge badge-gold">Analyse Opérationnelle · Confidentiel · Logos-Impact</div>
+            
+            <h1>
+                <span>SIREN 338165590</span> : réduire de 70 % la charge documentaire par dossier — sans changer votre organisation.
+            </h1>
+            
+            <p class="intro">
+                Cette analyse confidentielle quantifie le temps actuellement consacré à la constitution des réponses d'appels d'offres publics secteur propreté et identifie les leviers opérationnels pour automatiser la phase documentaire tout en maintenant votre niveau d'exigence qualité.
+            </p>
+            
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-number" data-target="70">0</div>
+                    <div class="kpi-label">% de temps rédactionnel récupéré</div>
+                    <div class="kpi-sublabel">Estimation sectorielle</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-number" data-target="30">0</div>
+                    <div class="kpi-label">Minutes d'analyse DCE</div>
+                    <div class="kpi-sublabel">vs 6 heures en moyenne</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-number" data-target="24">0</div>
+                    <div class="kpi-label">Heures de veille automatisée</div>
+                    <div class="kpi-sublabel">7 jours sur 7</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-number" data-target="100">0</div>
+                    <div class="kpi-label">% de conformité réglementaire</div>
+                    <div class="kpi-sublabel">DC1/DC2, ISO, RSE</div>
+                </div>
+            </div>
+            
+            <div class="cta-container">
+                <a href="https://book.stripe.com/aFa7sKfqe0Rc9xRb2daEE04" class="btn btn-primary">Commander l'Audit Opérationnel — 950 € HT</a>
+                <a href="https://calendly.com/contact-logos-impact/diagnostic-strategique-15-min" class="btn btn-secondary">Échanger 15 minutes</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="diagnostic">
+        <div class="container">
+            <div class="badge badge-red">Diagnostic Temporel</div>
+            <h2>État des lieux : charge documentaire actuelle</h2>
+            <p class="section-intro">
+                Sur la base des standards observés dans le secteur propreté pour des structures de taille comparable, voici l'estimation du temps mobilisé par dossier de réponse à appel d'offres public.
+            </p>
+            
+            <div class="diagnostic-table">
+                <div class="diagnostic-row">
+                    <div class="diagnostic-label">Lecture & Analyse du DCE</div>
+                    <div class="diagnostic-value">5 à 8 h/dossier</div>
+                </div>
+                <div class="diagnostic-row">
+                    <div class="diagnostic-label">Recherche documentaire interne (certificats, attestations, références)</div>
+                    <div class="diagnostic-value">3 à 5 h/dossier</div>
+                </div>
+                <div class="diagnostic-row">
+                    <div class="diagnostic-label">Rédaction du mémoire technique</div>
+                    <div class="diagnostic-value">12 à 18 h/dossier</div>
+                </div>
+                <div class="diagnostic-row">
+                    <div class="diagnostic-label">Mise en conformité (DC1/DC2, URSSAF, ISO 9001/14001, écolabels, RSE, SOGED/SOPAE)</div>
+                    <div class="diagnostic-value">3 à 5 h/dossier</div>
+                </div>
+            </div>
+            
+            <div class="callout">
+                <div class="callout-title">⚠ Contexte concurrentiel et clauses à risque</div>
+                <div class="callout-content">
+                    <p><strong>Concurrents identifiés :</strong> Données non disponibles — analyse possible lors de l'audit sur dossiers récents.</p>
+                    <p style="margin-top: 12px;"><strong>Clauses à risque :</strong> Non renseignées — l'audit permettra d'extraire les exigences atypiques (horaires décalés, contraintes d'accès, traçabilité renforcée, clauses de reprise de personnel).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="optimisation">
+        <div class="container">
+            <div class="badge badge-gold">Optimisation Opérationnelle</div>
+            <h2>Leviers d'accélération documentaire</h2>
+            <p class="section-intro">
+                L'industrialisation des tâches répétitives à faible valeur ajoutée permet de concentrer vos équipes sur la stratégie commerciale, la relation acheteur et la différenciation qualitative.
+            </p>
+            
+            <div class="cards-grid">
+                <div class="feature-card">
+                    <h3>Analyse Flash DCE</h3>
+                    <p>
+                        Extraction automatisée des critères de jugement, exigences techniques, pièces obligatoires et dates limites. L'agent IA structure le cahier des charges en fiche synthétique exploitable immédiatement.
+                    </p>
+                    <div class="feature-highlight">6 heures → 30 minutes</div>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Veille Marchés Publics</h3>
+                    <p>
+                        Surveillance quotidienne automatisée des plateformes (BOAMP, AWS, profils acheteurs régionaux) avec filtrage par zone géographique, montant, type de prestation et mots-clés métier.
+                    </p>
+                    <div class="feature-highlight">Alertes 24/7 · Zéro opportunité manquée</div>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Base de Connaissance Structurée</h3>
+                    <p>
+                        Centralisation de vos attestations, certificats ISO, références clients, méthodologies RSE et moyens humains/matériels. La rédaction du mémoire technique devient une opération d'assemblage guidé.
+                    </p>
+                    <div class="feature-highlight">70 % du temps de rédaction récupéré</div>
+                </div>
+            </div>
+            
+            <div class="roi-table">
+                <div class="roi-header">
+                    <div>Poste de temps</div>
+                    <div>Avant</div>
+                    <div>Après optimisation</div>
+                </div>
+                <div class="roi-row">
+                    <div>Analyse DCE</div>
+                    <div>6 h</div>
+                    <div>30 min</div>
+                </div>
+                <div class="roi-row">
+                    <div>Recherche documentaire</div>
+                    <div>4 h</div>
+                    <div>20 min</div>
+                </div>
+                <div class="roi-row">
+                    <div>Rédaction mémoire</div>
+                    <div>15 h</div>
+                    <div>5 h</div>
+                </div>
+                <div class="roi-row">
+                    <div>Conformité réglementaire</div>
+                    <div>4 h</div>
+                    <div>30 min</div>
+                </div>
+                <div class="roi-row">
+                    <div><strong>Total par dossier</strong></div>
+                    <div><strong>29 h</strong></div>
+                    <div><strong>6,5 h</strong></div>
+                </div>
+            </div>
+            
+            <p style="margin-top: 24px; color: #9CA3AF; font-size: 0.9375rem; font-style: italic;">
+                * Estimations établies selon hypothèses sectorielles standards. Les gains effectifs dépendent de la complexité des marchés ciblés et du niveau de structuration documentaire initial.
+            </p>
+        </div>
+    </section>
+
+    <section id="industrialisation">
+        <div class="container">
+            <div class="badge badge-purple">Industrialisation Human-in-the-Loop</div>
+            <h2>Processus augmenté : machine + décision humaine</h2>
+            <p class="section-intro">
+                Chaque étape critique reste sous contrôle humain. L'automatisation accélère les tâches mécaniques, votre expertise valide les choix stratégiques et la cohérence d'ensemble.
+            </p>
+            
+            <div class="process-steps">
+                <div class="process-step automated">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Détection & Qualification</h3>
+                        <p>L'agent IA scanne les plateformes, filtre selon vos critères (zone, montant, type), extrait le DCE et identifie les critères de jugement.</p>
+                    </div>
+                    <span class="step-badge automated">Automatisé</span>
+                </div>
+                
+                <div class="process-step human">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Décision Go / No-Go</h3>
+                        <p>Vous recevez la fiche synthétique. Vous décidez de candidater ou non selon votre stratégie commerciale et capacité opérationnelle.</p>
+                    </div>
+                    <span class="step-badge human">Décision humaine</span>
+                </div>
+                
+                <div class="process-step automated">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Pré-rédaction Mémoire Technique</h3>
+                        <p>L'analyse documentaire IA génère une première version du mémoire en puisant dans votre base de connaissance (méthodes, moyens, références, RSE).</p>
+                    </div>
+                    <span class="step-badge automated">Automatisé</span>
+                </div>
+                
+                <div class="process-step human">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Validation & Personnalisation</h3>
+                        <p>Vous relisez, ajustez le discours commercial, adaptez les exemples de références, affinez les engagements RSE et validez la cohérence.</p>
+                    </div>
+                    <span class="step-badge human">Décision humaine</span>
+                </div>
+                
+                <div class="process-step automated">
+                    <div class="step-number">05</div>
+                    <div class="step-content">
+                        <h3>Assemblage Final & Contrôle Conformité</h3>
+                        <p>Vérification automatisée de la complétude (DC1/DC2, URSSAF, attestations ISO, écolabels) et génération du dossier de candidature finalisé.</p>
+                    </div>
+                    <span class="step-badge automated">Automatisé</span>
+                </div>
+            </div>
+            
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-dot blue"></div>
+                    <span>Traitement automatisé par agent IA</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot gold"></div>
+                    <span>Validation et décision humaine</span>
+                </div>
+            </div>
+            
+            <div class="security-grid">
+                <div class="security-card">
+                    <div class="security-icon">🔒</div>
+                    <h4>Données traitées avec rigueur</h4>
+                    <p>Aucune exposition de vos documents internes en dehors de l'environnement sécurisé. Conformité RGPD totale.</p>
+                </div>
+                <div class="security-card">
+                    <div class="security-icon">⚖️</div>
+                    <h4>Conformité AI Act 2026</h4>
+                    <p>Architecture préparée pour les exigences européennes en matière de transparence et traçabilité des systèmes d'intelligence artificielle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="accompagnement">
+        <div class="container">
+            <div class="badge badge-gold">Accompagnement sur Mesure</div>
+            <h2>Audit Opérationnel Initial — 950 € HT</h2>
+            <p class="section-intro">
+                Un diagnostic de 2 heures pour quantifier précisément votre situation, identifier les sources de friction documentaire et
