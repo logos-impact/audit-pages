@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analyse · DECA PROPRETE NORMANDIE-CENTRE-LOIRE I · Logos-Impact</title>
+<!--
+  ═══════════════════════════════════════════════════
+  VARIABLES WORKFLOW GITHUB — À injecter pour chaque prospect
+  ═══════════════════════════════════════════════════
+  DECA PROPRETE NORMANDIE-CENTRE-LOIRE I        Nom de l'entreprise prospect
+  Services           nettoyage / sécurité / BTP / autre
+  Sur la base des standards sectoriels observés pour une structure de ce profil, l'activité dans les services génère en moyenne 8 à 12 réponses annuelles. Chaque dossier mobilise entre 15 et 40 heures selon la complexité : rédaction mémoire technique, cadre de réponse, pièces administratives. Sans visibilité sur un marché récent, l'analyse reste calibrée sur les pratiques habituelles du secteur.             2-3 phrases factuelles issues de l'analyse IA (BOAMP + SIREN)
+  8             Nombre d'AO estimés/an — calculé par le prompt IA
+                        Logique : CA → secteur → volumétrie sectorielle
+                        Ex : BTP 2M€ → ~15 AO/an / Nettoyage 1M€ → ~20 AO/an
+  140   = NB_AO × 25,5 h (gain moyen par dossier)
+  6 = HEURES_LIBEREES / 25 (AO supplémentaires traitables)
+  480 000 € Estimation CA public adressable en plus (AO_SUPPLEMENTAIRES × ticket moyen secteur)
+  ENTRETIEN ET NETTOYAGES DIVERS DES BATIMENTS COMMUNAUX   Intitulé dernier marché BOAMP
+  21720051800017          Acheteur public BOAMP
+  53 526,09           Montant attribué HT
+  Les structures services rencontrent typiquement : dispersion documentaire entre versions, reprise manuelle des contenus d'un AO à l'autre, absence de référentiel actualisé. Résultat : temps de réponse allongé, risque d'incohérence entre lots, mobilisation disproportionnée des équipes. La standardisation des process réduit ces frictions de 30 à 40 %.           Analyse opérationnelle texte libre (IA)
+  Analyse détaillée possible lors de l'audit sur dossiers récents.       Environnement concurrentiel texte libre (IA)
+  Conformité administrative  Ligne conformité adaptée au secteur :
+                        Nettoyage → "Conformité RSE & écolabels"
+                        Sécurité  → "Conformité CNAPS & agrément"
+                        BTP       → "Conformité Qualibat & décennale"
+  ═══════════════════════════════════════════════════
+-->
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:       #0D1B2A;
+    --navy-mid:   #14263A;
+    --gold:       #E8A020;
+    --gold-light: #F5B840;
+    --white:      #FFFFFF;
+    --off-white:  #F7F8FA;
+    --light-gray: #F0F2F5;
+    --mid-gray:   #E2E6EA;
+    --text-dark:  #0D1B2A;
+    --text-mid:   #3D4F60;
+    --text-light: #6B7D8E;
+    --green:      #1A9E6E;
+    --border:     #DDE2E8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-dark);
+    background: var(--white);
+    line-height: 1.6;
+  }
+
+  /* ─── HEADER ─────────────────────────────── */
+  .site-header {
+    background: var(--navy);
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky; top: 0; z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .logo {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900; font-size: 1.15rem;
+    color: var(--white); letter-spacing: 0.02em;
+  }
+  .logo span { color: var(--gold); }
+  .header-badge {
+    font-size: 0.68rem; font-weight: 500;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.12em; text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 4px 12px; border-radius: 20px;
+  }
+
+  /* ─── HERO ───────────────────────────────── */
+  .hero {
+    background: var(--navy);
+    padding: 64px 48px 72px;
+    position: relative; overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; top: -80px; right: -80px;
+    width: 480px; height: 480px;
+    background: radial-gradient(circle, rgba(232,160,32,0.07) 0%, transparent 68%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 920px; margin: 0 auto; }
+
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 32px;
+  }
+  .eyebrow-badge {
+    font-size: 0.65rem; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(232,160,32,0.25);
+    padding: 5px 12px; border-radius: 3px;
+  }
+  .eyebrow-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.2); }
+  .eyebrow-source { font-size: 0.7rem; color: rgba(255,255,255,0.25); }
+
+  /* Hero title — structure claire pour les variables */
+  .hero-company {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(0.72rem, 1.4vw, 0.85rem);
+    font-weight: 600;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .hero-title {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 8px;
+    max-width: 760px;
+  }
+  .hero-title-accent {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1.1;
+    margin-bottom: 28px;
+    display: block;
+  }
+  .hero-intro {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.58);
+    max-width: 600px;
+    line-height: 1.75;
+    margin-bottom: 48px;
+  }
+
+  /* KPI strip */
+  .kpi-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.03);
+    margin-bottom: 28px;
+  }
+  .kpi-cell {
+    padding: 22px 24px;
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+  .kpi-cell:last-child { border-right: none; }
+  .kpi-val {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.7rem; font-weight: 900;
+    color: var(--gold); line-height: 1;
+    margin-bottom: 5px;
+  }
+  .kpi-lbl { font-size: 0.72rem; color: rgba(255,255,255,0.42); line-height: 1.4; }
+  .kpi-hint { font-size: 0.62rem; color: rgba(255,255,255,0.2); margin-top: 3px; font-style: italic; }
+
+  /* BOAMP card */
+  .boamp-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-left: 3px solid var(--gold);
+    border-radius: 6px;
+    padding: 18px 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+  }
+  .boamp-field {}
+  .boamp-key {
+    font-size: 0.62rem; letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.28); margin-bottom: 5px;
+  }
+  .boamp-val {
+    font-family: 'Nunito', sans-serif; font-weight: 700;
+    font-size: 0.9rem; color: var(--white);
+  }
+  .boamp-val.gold { color: var(--gold); font-size: 1.25rem; }
+  .boamp-source { font-size: 0.62rem; color: rgba(255,255,255,0.18); margin-top: 3px; }
+
+  /* ─── LAYOUT HELPERS ─────────────────────── */
+  .section { padding: 80px 48px; }
+  .section-inner { max-width: 920px; margin: 0 auto; }
+  .s-white    { background: var(--white); }
+  .s-offwhite { background: var(--off-white); }
+
+  .sec-badge {
+    display: inline-block;
+    font-size: 0.62rem; font-weight: 600;
+    letter-spacing: 0.13em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 3px;
+    margin-bottom: 14px;
+  }
+  .b-gold  { background: rgba(232,160,32,0.1);  color: var(--gold);      border: 1px solid rgba(232,160,32,0.22); }
+  .b-navy  { background: rgba(13,27,42,0.06);   color: var(--navy);      border: 1px solid rgba(13,27,42,0.14); }
+  .b-green { background: rgba(26,158,110,0.08); color: var(--green);     border: 1px solid rgba(26,158,110,0.2); }
+
+  .sec-title {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+    font-weight: 800; color: var(--text-dark);
+    line-height: 1.2; margin-bottom: 10px;
+  }
+  .sec-title .gold { color: var(--gold); }
+  .sec-sub {
+    font-size: 0.95rem; color: var(--text-mid);
+    max-width: 600px; line-height: 1.72;
+    margin-bottom: 44px;
+  }
+  hr.divider { border: none; border-top: 1px solid var(--border); }
+
+  /* ─── IMPACT METRICS (remplace T.H.E.) ────── */
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .impact-card {
+    background: var(--navy);
+    border-radius: 10px;
+    padding: 28px 32px;
+  }
+  .impact-icon { font-size: 1.4rem; margin-bottom: 14px; }
+  .impact-figure {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.9rem; font-weight: 900;
+    color: var(--gold); line-height: 1;
+    margin-bottom: 6px;
+  }
+  .impact-label { font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-bottom: 10px; }
+  .impact-desc  { font-size: 0.78rem; color: rgba(255,255,255,0.3); line-height: 1.55; font-style: italic; }
+
+  /* ─── FRICTION TABLE ──────────────────────── */
+  .table-wrap { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 10px; }
+  table.ft { width: 100%; border-collapse: collapse; }
+  table.ft th {
+    text-align: left; font-size: 0.62rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-light);
+    padding: 12px 18px; background: var(--light-gray);
+    border-bottom: 1px solid var(--border);
+  }
+  table.ft td {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.875rem;
+  }
+  table.ft tr:last-child td { border-bottom: none; background: rgba(232,160,32,0.04); font-weight: 700; }
+  .t-before { color: var(--text-light); text-decoration: line-through; }
+  .t-after  { color: var(--green); font-weight: 600; }
+  .t-gain   { color: var(--gold); font-weight: 700; }
+  .table-note { font-size: 0.68rem; color: var(--text-light); font-style: italic; margin-bottom: 40px; }
+
+  /* ─── ANALYSE + CONCURRENTS ───────────────── */
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 680px) { .info-grid { grid-template-columns: 1fr; } }
+  .info-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px 28px;
+  }
+  .info-card.full { grid-column: 1 / -1; border-top: 3px solid var(--text-mid); }
+  .info-card.primary { border-top: 3px solid var(--navy); }
+  .info-lbl { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-light); margin-bottom: 10px; }
+  .info-body { font-size: 0.875rem; color: var(--text-mid); line-height: 1.7; }
+  .info-body strong { color: var(--text-dark); }
+
+  /* ─── LEVIERS ─────────────────────────────── */
+  .leviers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px; margin-bottom: 40px;
+  }
+  .levier {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px 26px;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .levier:hover { box-shadow: 0 8px 28px rgba(13,27,42,0.08); transform: translateY(-2px); }
+  .levier-n {
+    font-family: 'Nunito', sans-serif;
+    font-size: 2.2rem; font-weight: 900;
+    color: rgba(232,160,32,0.18); line-height: 1;
+    margin-bottom: 10px;
+  }
+  .levier-t { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--text-dark); margin-bottom: 8px; }
+  .levier-b { font-size: 0.85rem; color: var(--text-mid); line-height: 1.65; margin-bottom: 14px; }
+  .levier-tag {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: rgba(26,158,110,0.07);
+    border: 1px solid rgba(26,158,110,0.18);
+    border-radius: 4px; padding: 4px 10px;
+    font-size: 0.72rem; font-weight: 600;
+    color: var(--green);
+  }
+
+  /* ─── AVANT/APRÈS ─────────────────────────── */
+  .aa-wrap {
+    display: grid;
+    grid-template-columns: 1fr 48px 1fr;
+    gap: 0; align-items: center;
+    margin-bottom: 8px;
+  }
+  @media (max-width: 640px) {
+    .aa-wrap { grid-template-columns: 1fr; }
+    .aa-arrow { transform: rotate(90deg); padding: 8px 0; }
+  }
+  .aa-col { border-radius: 10px; overflow: hidden; }
+  .col-b  { background: var(--off-white); border: 1px solid var(--border); }
+  .col-a  { background: var(--navy); }
+  .aa-arrow { display: flex; align-items: center; justify-content: center; color: var(--gold); }
+  .aa-head { padding: 13px 18px; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+  .col-b .aa-head { color: var(--text-light); border-bottom: 1px solid var(--border); }
+  .col-a .aa-head { color: rgba(255,255,255,0.35); border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .aa-row { display: flex; justify-content: space-between; padding: 11px 18px; border-bottom: 1px solid; font-size: 0.875rem; }
+  .col-b .aa-row { border-color: var(--border); color: var(--text-mid); }
+  .col-a .aa-row { border-color: rgba(255,255,255,0.05); color: rgba(255,255,255,0.55); }
+  .col-b .aa-row .v { text-decoration: line-through; color: var(--text-light); }
+  .col-a .aa-row .v { color: var(--gold); font-weight: 700; font-family: 'Nunito', sans-serif; }
+  .aa-total { padding: 15px 18px; display: flex; justify-content: space-between; font-family: 'Nunito', sans-serif; font-weight: 700; }
+  .col-b .aa-total { color: var(--text-mid); }
+  .col-b .aa-total .v { font-size: 1.35rem; color: var(--text-dark); }
+  .col-a .aa-total { color: rgba(255,255,255,0.45); }
+  .col-a .aa-total .v { font-size: 1.35rem; color: var(--gold); }
+
+  /* ─── SOLUTION DOC ────────────────────────── */
+  .steps { display: flex; flex-direction: column; }
+  .step  { display: flex; gap: 20px; padding: 28px 0; border-bottom: 1px solid var(--border); }
+  .step:last-child { border-bottom: none; }
+  .step-n {
+    flex-shrink: 0; width: 38px; height: 38px;
+    background: var(--navy); color: var(--gold);
+    border-radius: 7px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.9rem;
+  }
+  .step-content {}
+  .step-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--text-dark); margin-bottom: 6px; }
+  .step-text  { font-size: 0.85rem; color: var(--text-mid); line-height: 1.65; }
+  .step-tags  { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+  .step-tag   { font-size: 0.68rem; font-weight: 500; background: var(--light-gray); color: var(--text-mid); padding: 3px 9px; border-radius: 4px; border: 1px solid var(--border); }
+
+  /* ─── RADAR — sans scores ─────────────────── */
+  .radar-layout { display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
+  .radar-svg-box { flex: 0 0 260px; }
+  .radar-right   { flex: 1; min-width: 220px; }
+  .radar-axes    { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+  .radar-ax      { display: flex; align-items: center; gap: 12px; }
+  .ax-dot        { width: 8px; height: 8px; border-radius: 50%; background: var(--mid-gray); flex-shrink: 0; }
+  .ax-label      { font-size: 0.85rem; color: var(--text-dark); font-weight: 500; flex: 1; }
+  .ax-bar        { width: 80px; height: 4px; background: var(--mid-gray); border-radius: 2px; }
+  .radar-teaser  {
+    background: rgba(232,160,32,0.06);
+    border: 1px solid rgba(232,160,32,0.2);
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .radar-teaser-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-dark); margin-bottom: 6px; }
+  .radar-teaser-body  { font-size: 0.78rem; color: var(--text-mid); line-height: 1.6; }
+  .radar-teaser-body strong { color: var(--gold); }
+
+  /* ─── SECURITE ────────────────────────────── */
+  .sec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 640px) { .sec-grid { grid-template-columns: 1fr; } }
+  .sec-card { background: var(--navy); border-radius: 10px; padding: 26px 28px; }
+  .sec-icon  { font-size: 1.3rem; margin-bottom: 12px; }
+  .sec-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--white); margin-bottom: 12px; }
+  .sec-list  { list-style: none; }
+  .sec-list li { font-size: 0.8rem; color: rgba(255,255,255,0.48); line-height: 1.6; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; gap: 8px; }
+  .sec-list li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+
+  /* ─── AUDIT ───────────────────────────────── */
+  .audit-layout { display: grid; grid-template-columns: 3fr 2fr; gap: 22px; align-items: start; }
+  @media (max-width: 720px) { .audit-layout { grid-template-columns: 1fr; } }
+  .audit-main { background: var(--navy); border-radius: 12px; padding: 36px 38px; }
+  .audit-price { font-family: 'Nunito', sans-serif; font-size: 2.5rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+  .audit-price-sub { font-size: 0.72rem; color: rgba(255,255,255,0.28); margin-bottom: 26px; }
+  .audit-list { list-style: none; margin-bottom: 28px; }
+  .audit-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.85rem; color: rgba(255,255,255,0.65); padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.05); line-height: 1.5; }
+  .audit-list li:last-child { border-bottom: none; }
+  .chk { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+  .audit-disclaimer { font-size: 0.68rem; color: rgba(255,255,255,0.22); font-style: italic; margin-bottom: 24px; }
+  .btn-p {
+    display: block; width: 100%; text-align: center;
+    background: var(--gold); color: var(--navy);
+    font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.875rem;
+    padding: 15px 20px; border-radius: 6px;
+    text-decoration: none; letter-spacing: 0.02em;
+    transition: background 0.15s, transform 0.1s;
+  }
+  .btn-p:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .audit-side { background: var(--off-white); border: 1px solid var(--border); border-radius: 12px; padding: 26px 28px; }
+  .audit-side h3 { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--text-dark); margin-bottom: 6px; }
+  .audit-side p { font-size: 0.82rem; color: var(--text-mid); line-height: 1.6; margin-bottom: 18px; }
+  .side-list { list-style: none; margin-bottom: 20px; }
+  .side-list li { display: flex; gap: 8px; font-size: 0.8rem; color: var(--text-mid); padding: 5px 0; }
+  .side-list li::before { content: '→'; color: var(--gold); flex-shrink: 0; }
+  .btn-s {
+    display: block; width: 100%; text-align: center;
+    background: transparent; color: var(--navy);
+    font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.85rem;
+    padding: 13px 20px; border-radius: 6px;
+    text-decoration: none; border: 2px solid var(--navy);
+    transition: background 0.15s, color 0.15s;
+  }
+  .btn-s:hover { background: var(--navy); color: var(--white); }
+
+  /* ─── BANNER ──────────────────────────────── */
+  .banner { background: var(--navy); padding: 60px 48px; }
+  .banner-inner { max-width: 920px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; }
+  .banner-text h2 { font-family: 'Nunito', sans-serif; font-size: 1.45rem; font-weight: 800; color: var(--white); margin-bottom: 8px; line-height: 1.25; }
+  .banner-text h2 em { color: var(--gold); font-style: normal; }
+  .banner-text p { font-size: 0.85rem; color: rgba(255,255,255,0.45); max-width: 460px; line-height: 1.65; }
+  .banner-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+  .bb-p { background: var(--gold); color: var(--navy); font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.85rem; padding: 13px 26px; border-radius: 6px; text-decoration: none; white-space: nowrap; }
+  .bb-s { background: transparent; color: rgba(255,255,255,0.6); font-size: 0.85rem; font-weight: 500; padding: 13px 26px; border-radius: 6px; text-decoration: none; border: 1px solid rgba(255,255,255,0.18); white-space: nowrap; }
+
+  /* ─── FOOTER ─────────────────────────────── */
+  footer { background: #07101A; padding: 26px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .footer-links { display: flex; gap: 22px; }
+  .footer-links a { font-size: 0.72rem; color: rgba(255,255,255,0.28); text-decoration: none; }
+  .footer-links a:hover { color: rgba(255,255,255,0.55); }
+  .footer-copy { font-size: 0.68rem; color: rgba(255,255,255,0.18); }
+
+  /* ─── RESPONSIVE ──────────────────────────── */
+  @media (max-width: 720px) {
+    .section, .hero { padding-left: 24px; padding-right: 24px; }
+    .site-header { padding: 14px 24px; }
+    .banner { padding: 48px 24px; }
+    footer { padding: 22px 24px; flex-direction: column; align-items: flex-start; }
+    .kpi-strip { grid-template-columns: 1fr 1fr; }
+    .kpi-cell { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══════════════════════════════════════ -->
+<header class="site-header">
+  <div class="logo">LOGOS-<span>IMPACT</span></div>
+  <div class="header-badge">Analyse opérationnelle · Confidentiel</div>
+</header>
+
+<!-- ══ HERO ════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <div class="hero-eyebrow">
+      <span class="eyebrow-badge">Diagnostic opérationnel</span>
+      <span class="eyebrow-dot"></span>
+      <span class="eyebrow-source">Données BOAMP · SIREN · Analyse IA</span>
+    </div>
+
+    <!-- Titre en 3 lignes séparées = variables propres -->
+    <div class="hero-company">DECA PROPRETE NORMANDIE-CENTRE-LOIRE I</div>
+    <h1 class="hero-title">Libérer de la capacité pour répondre</h1>
+    <span class="hero-title-accent">à plus de marchés — et mieux.</span>
+
+    <p class="hero-intro">Sur la base des standards sectoriels observés pour une structure de ce profil, l'activité dans les services génère en moyenne 8 à 12 réponses annuelles. Chaque dossier mobilise entre 15 et 40 heures selon la complexité : rédaction mémoire technique, cadre de réponse, pièces administratives. Sans visibilité sur un marché récent, l'analyse reste calibrée sur les pratiques habituelles du secteur.</p>
+
+    <!-- KPI strip -->
+    <div class="kpi-strip">
+      <div class="kpi-cell">
+        <div class="kpi-val" data-target="140">140</div>
+        <div class="kpi-lbl">Heures libérables / an</div>
+        <div class="kpi-hint">Hypothèse 8 AO/an · estimation sectorielle</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-val">+6</div>
+        <div class="kpi-lbl">AO supplémentaires traitables</div>
+        <div class="kpi-hint">Avec la même équipe · même volume</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-val">30 min</div>
+        <div class="kpi-lbl">Analyse DCE</div>
+        <div class="kpi-hint">vs 6 h manuellement · contrôle humain inclus</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-val">−87 %</div>
+        <div class="kpi-lbl">Temps rédaction mémoire</div>
+        <div class="kpi-hint">15 h → 2 h · estimation sectorielle</div>
+      </div>
+    </div>
+
+    <!-- BOAMP -->
+    <div class="boamp-card">
+      <div class="boamp-field">
+        <div class="boamp-key">Dernier marché remporté</div>
+        <div class="boamp-val">ENTRETIEN ET NETTOYAGES DIVERS DES BATIMENTS COMMUNAUX</div>
+      </div>
+      <div class="boamp-field">
+        <div class="boamp-key">Acheteur public</div>
+        <div class="boamp-val">21720051800017</div>
+      </div>
+      <div class="boamp-field">
+        <div class="boamp-key">Montant attribué</div>
+        <div class="boamp-val gold">53 526,09 €</div>
+        <div class="boamp-source">Source : BOAMP · données publiques</div>
+      </div>
+      <div class="boamp-field">
+        <div class="boamp-key">Volume AO estimé</div>
+        <div class="boamp-val">8 / an</div>
+        <div class="boamp-source">Base CA secteur · hypothèse</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ S1 — IMPACT BUSINESS ════════════════════════ -->
+<section class="section s-white">
+  <div class="section-inner">
+    <span class="sec-badge b-navy">Charge opérationnelle</span>
+    <h2 class="sec-title">Ce que représente concrètement<br><span class="gold">votre cycle de réponse AO</span></h2>
+    <p class="sec-sub">Ordres de grandeur indicatifs — base de travail, pas vérité comptable. À préciser lors de l'audit.</p>
+
+    <!-- Impact metrics — orientées business -->
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-icon">⏱</div>
+        <div class="impact-figure">140 h</div>
+        <div class="impact-label">Capacité mobilisée / an sur la réponse AO</div>
+        <div class="impact-desc">Hypothèse 8 AO/an × 25 h / dossier · base sectorielle Services</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon">📋</div>
+        <div class="impact-figure">+6</div>
+        <div class="impact-label">AO supplémentaires traitables avec la même équipe</div>
+        <div class="impact-desc">Si la charge par dossier passe de 25 h à 3,5 h · même effectif</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon">📈</div>
+        <div class="impact-figure">480 000 €</div>
+        <div class="impact-label">CA public adressable supplémentaire estimé</div>
+        <div class="impact-desc">Hypothèse ticket moyen secteur · ordre de grandeur annuel</div>
+      </div>
+    </div>
+
+    <!-- Tableau friction -->
+    <div class="table-wrap">
+      <table class="ft">
+        <thead>
+          <tr>
+            <th>Phase de réponse</th>
+            <th>Aujourd'hui</th>
+            <th>Avec IA assistée</th>
+            <th>Gain / dossier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Lecture &amp; Analyse DCE (CCTP/CCAP/RC)</td>
+            <td class="t-before">6 h</td>
+            <td class="t-after">30 min</td>
+            <td class="t-gain">−5,5 h</td>
+          </tr>
+          <tr>
+            <td>Recherche documentaire interne</td>
+            <td class="t-before">4 h</td>
+            <td class="t-after">20 min</td>
+            <td class="t-gain">−3,7 h</td>
+          </tr>
+          <tr>
+            <td>Rédaction mémoire technique (V1)</td>
+            <td class="t-before">15 h</td>
+            <td class="t-after">2 h</td>
+            <td class="t-gain">−13 h</td>
+          </tr>
+          <tr>
+            <td>Conformité administrative</td>
+            <td class="t-before">4 h</td>
+            <td class="t-after">30 min</td>
+            <td class="t-gain">−3,5 h</td>
+          </tr>
+          <tr>
+            <td><strong>Total par dossier</strong></td>
+            <td class="t-before"><strong>29 h</strong></td>
+            <td class="t-after"><strong>3,5 h</strong></td>
+            <td class="t-gain"><strong>−25,5 h</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">Estimation selon hypothèses sectorielles · Base de travail — à affiner lors de l'audit sur vos dossiers réels</p>
+
+    <!-- Analyse + Concurrents -->
+    <div class="info-grid">
+      <div class="info-card primary">
+        <div class="info-lbl">Analyse opérationnelle</div>
+        <div class="info-body">Les structures services rencontrent typiquement : dispersion documentaire entre versions, reprise manuelle des contenus d'un AO à l'autre, absence de référentiel actualisé. Résultat : temps de réponse allongé, risque d'incohérence entre lots, mobilisation disproportionnée des équipes. La standardisation des process réduit ces frictions de 30 à 40 %.</div>
+      </div>
+      <div class="info-card full">
+        <div class="info-lbl">Environnement concurrentiel — zone identifiée</div>
+        <div class="info-body">Analyse détaillée possible lors de l'audit sur dossiers récents.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══ S2 — LEVIERS ════════════════════════════════ -->
+<section class="section s-offwhite">
+  <div class="section-inner">
+    <span class="sec-badge b-gold">Optimisation immédiate</span>
+    <h2 class="sec-title">3 leviers activables rapidement<br><span class="gold">— sans investissement technique</span></h2>
+    <p class="sec-sub">Avant même de déployer une base documentaire complète, trois gains concrets sont accessibles en quelques jours — sans modifier votre organisation.</p>
+
+    <div class="leviers-grid">
+      <div class="levier">
+        <div class="levier-n">01</div>
+        <div class="levier-t">Analyse Flash DCE</div>
+        <div class="levier-b">Un agent IA lit l'intégralité du cahier des charges et restitue un tableau structuré : critères de jugement, pièces obligatoires, clauses de pénalité, points de risque RSE. La vérification humaine reste intégrée.</div>
+        <div class="levier-tag">↑ 6 h → 30 min par dossier</div>
+      </div>
+      <div class="levier">
+        <div class="levier-n">02</div>
+        <div class="levier-t">Veille marchés automatisée</div>
+        <div class="levier-b">Surveillance quotidienne du BOAMP et des plateformes régionales selon vos critères : zone, montant, type de prestation. Les opportunités pertinentes arrivent directement — aucun marché manqué.</div>
+        <div class="levier-tag">↑ Alertes quotidiennes · 7j/7</div>
+      </div>
+      <div class="levier">
+        <div class="levier-n">03</div>
+        <div class="levier-t">Scoring Go / No-Go IA</div>
+        <div class="levier-b">Pour chaque AO détecté, un score de compatibilité est calculé automatiquement : zone, profil acheteur, concurrents identifiés, budget estimé. Vous concentrez votre énergie sur les dossiers à fort potentiel de transformation.</div>
+        <div class="levier-tag">↑ Priorité aux dossiers gagnables</div>
+      </div>
+    </div>
+
+    <!-- Avant / Après -->
+    <div class="aa-wrap">
+      <div class="aa-col col-b">
+        <div class="aa-head">Aujourd'hui — Manuel</div>
+        <div class="aa-row"><span>Analyse DCE</span><span class="v">6 h</span></div>
+        <div class="aa-row"><span>Recherche docs</span><span class="v">4 h</span></div>
+        <div class="aa-row"><span>Rédaction mémoire</span><span class="v">15 h</span></div>
+        <div class="aa-row"><span>Conformité</span><span class="v">4 h</span></div>
+        <div class="aa-total"><span>Par dossier</span><span class="v">29 h</span></div>
+      </div>
+      <div class="aa-arrow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+      <div class="aa-col col-a">
+        <div class="aa-head">Avec IA — Assisté</div>
+        <div class="aa-row"><span>Analyse DCE</span><span class="v">30 min</span></div>
+        <div class="aa-row"><span>Recherche docs</span><span class="v">20 min</span></div>
+        <div class="aa-row"><span>Rédaction mémoire</span><span class="v">2 h</span></div>
+        <div class="aa-row"><span>Conformité</span><span class="v">30 min</span></div>
+        <div class="aa-total"><span>Par dossier</span><span class="v">3,5 h</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══ S3 — BASE DOC ════════════════════════════════ -->
+<section class="section s-white">
+  <div class="section-inner">
+    <span class="sec-badge b-navy">Solution documentaire</span>
+    <h2 class="sec-title">Une base de connaissance interne<br><span class="gold">connectée à l'IA</span></h2>
+    <p class="sec-sub">Vos mémoires gagnants, certifications, process RSE et fiches métier indexés dans une base privée. L'IA génère 70 % du mémoire technique à partir de vos propres données — jamais de sources externes.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">01</div>
+        <div class="step-content">
+          <div class="step-title">Vos documents internes sont indexés</div>
+          <div class="step-text">Une seule fois au démarrage — puis mis à jour à chaque nouveau dossier remporté. Ce capital existe chez DECA PROPRETE NORMANDIE-CENTRE-LOIRE I. Il est probablement dispersé et partiellement réinventé à chaque dossier.</div>
+          <div class="step-tags">
+            <span class="step-tag">Mémoires techniques gagnants</span>
+            <span class="step-tag">Certifications ISO / RSE / Écolabels</span>
+            <span class="step-tag">Fiches process &amp; métier</span>
+            <span class="step-tag">Références clients &amp; attestations</span>
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">02</div>
+        <div class="step-content">
+          <div class="step-title">Base IA privée — indexation automatique</div>
+          <div class="step-text">Votre savoir-faire structuré, interrogeable en quelques secondes. Données 100 % internes. Aucune source externe. Capital qui s'enrichit à chaque dossier.</div>
+          <div class="step-tags">
+            <span class="step-tag">Données 100 % internes</span>
+            <span class="step-tag">Aucune source externe</span>
+            <span class="step-tag">RGPD conforme</span>
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">03</div>
+        <div class="step-content">
+          <div class="step-title">L'IA génère la V1 du mémoire technique</div>
+          <div class="step-text">En puisant uniquement dans votre base. La V1 est produite à partir de vos références réelles, de votre politique RSE et de vos certifications. <strong>15 h de rédaction → 2 h de révision.</strong></div>
+          <div class="step-tags"><span class="step-tag">−87 % de temps</span><span class="step-tag">Sources internes uniquement</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">04</div>
+        <div class="step-content">
+          <div class="step-title">Révision &amp; validation humaine obligatoire</div>
+          <div class="step-text">Le bureau d'études ajuste, personnalise et valide avant tout dépôt. <strong>L'IA prépare · Vous décidez · Vous signez.</strong> La décision reste humaine à chaque étape.</div>
+          <div class="step-tags"><span class="step-tag">✓ Décision humaine</span><span class="step-tag">Conforme au DCE</span><span class="step-tag">Cohérence garantie</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══ S4 — RADAR + SECURITE ════════════════════════ -->
+<section class="section s-offwhite">
+  <div class="section-inner">
+    <span class="sec-badge b-gold">Maturité IA</span>
+    <h2 class="sec-title">5 axes d'optimisation documentaire<br><span class="gold">— où en êtes-vous ?</span></h2>
+    <p class="sec-sub">L'audit révèle précisément votre positionnement sur chacun de ces axes et la feuille de route pour progresser.</p>
+
+    <div class="radar-layout" style="margin-bottom: 48px;">
+      <div class="radar-svg-box">
+        <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+          <!-- Grid -->
+          <circle cx="130" cy="130" r="92" fill="none" stroke="#E2E6EA" stroke-width="1"/>
+          <circle cx="130" cy="130" r="69" fill="none" stroke="#E2E6EA" stroke-width="1"/>
+          <circle cx="130" cy="130" r="46" fill="none" stroke="#E2E6EA" stroke-width="1"/>
+          <circle cx="130" cy="130" r="23" fill="none" stroke="#E2E6EA" stroke-width="1"/>
+          <!-- Axes -->
+          <line x1="130" y1="38" x2="130" y2="222" stroke="#E2E6EA" stroke-width="1"/>
+          <line x1="130" y1="130" x2="218" y2="75" stroke="#E2E6EA" stroke-width="1"/>
+          <line x1="130" y1="130" x2="184" y2="198" stroke="#E2E6EA" stroke-width="1"/>
+          <line x1="130" y1="130" x2="76" y2="198" stroke="#E2E6EA" stroke-width="1"/>
+          <line x1="130" y1="130" x2="42" y2="75" stroke="#E2E6EA" stroke-width="1"/>
+          <!-- Polygon vide — scores révélés dans l'audit -->
+          <polygon points="130,38 218,75 184,198 76,198 42,75"
+            fill="rgba(232,160,32,0.06)" stroke="rgba(232,160,32,0.3)" stroke-width="1.5" stroke-dasharray="5,3"/>
+          <!-- Labels -->
+          <text x="130" y="26" text-anchor="middle" font-size="8.5" fill="#6B7D8E" font-family="DM Sans,sans-serif">Veille marchés</text>
+          <text x="226" y="72" text-anchor="start" font-size="8.5" fill="#6B7D8E" font-family="DM Sans,sans-serif">Analyse DCE</text>
+          <text x="198" y="216" text-anchor="middle" font-size="8.5" fill="#6B7D8E" font-family="DM Sans,sans-serif">Base doc.</text>
+          <text x="62" y="216" text-anchor="middle" font-size="8.5" fill="#6B7D8E" font-family="DM Sans,sans-serif">Scoring AO</text>
+          <text x="8" y="72" text-anchor="start" font-size="8.5" fill="#6B7D8E" font-family="DM Sans,sans-serif">Conformité</text>
+        </svg>
+      </div>
+      <div class="radar-right">
+        <div class="radar-axes">
+          <div class="radar-ax">
+            <div class="ax-dot"></div>
+            <div class="ax-label">Veille marchés</div>
+            <div class="ax-bar"></div>
+          </div>
+          <div class="radar-ax">
+            <div class="ax-dot"></div>
+            <div class="ax-label">Analyse DCE</div>
+            <div class="ax-bar"></div>
+          </div>
+          <div class="radar-ax">
+            <div class="ax-dot"></div>
+            <div class="ax-label">Base documentaire</div>
+            <div class="ax-bar"></div>
+          </div>
+          <div class="radar-ax">
+            <div class="ax-dot"></div>
+            <div class="ax-label">Scoring Go/No-Go</div>
+            <div class="ax-bar"></div>
+          </div>
+          <div class="radar-ax">
+            <div class="ax-dot"></div>
+            <div class="ax-label">Conformité admin.</div>
+            <div class="ax-bar"></div>
+          </div>
+        </div>
+        <div class="radar-teaser">
+          <div class="radar-teaser-title">Votre positionnement sur ces 5 axes</div>
+          <div class="radar-teaser-body">Révélé dans l'<strong>Audit de Performance Documentaire</strong> — avec la feuille de route opérationnelle et les gains estimés par axe.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sécurité données -->
+    <div class="sec-grid">
+      <div class="sec-card">
+        <div class="sec-icon">🔒</div>
+        <div class="sec-title">Données traitées avec rigueur</div>
+        <ul class="sec-list">
+          <li>API IA configurées sans entraînement sur vos données</li>
+          <li>Hébergement principalement en Europe</li>
+          <li>Données non mutualisées entre clients</li>
+          <li>Dispositif adaptable pour marchés sensibles</li>
+        </ul>
+      </div>
+      <div class="sec-card">
+        <div class="sec-icon">✓</div>
+        <div class="sec-title">Conformité AI Act 2026 — anticipée</div>
+        <ul class="sec-list">
+          <li>Systèmes transparents et auditables</li>
+          <li>Conformes RGPD — traçabilité complète</li>
+          <li>Avantage concurrentiel lors des audits acheteurs sensibles</li>
+          <li>Décision humaine obligatoire avant tout dépôt</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══ S5 — AUDIT ═══════════════════════════════════ -->
+<section class="section s-white">
+  <div class="section-inner">
+    <span class="sec-badge b-gold">Accompagnement</span>
+    <h2 class="sec-title">Audit de Performance Documentaire</h2>
+    <p class="sec-sub">Un livrable structuré pour passer de l'analyse à l'action. Conçu pour identifier les principaux gains de temps et de capacité documentaire pour DECA PROPRETE NORMANDIE-CENTRE-LOIRE I.</p>
+
+    <div class="audit-layout">
+      <div class="audit-main">
+        <div class="audit-price">950 <span style="font-size:1.4rem;color:rgba(255,255,255,0.35)">€ HT</span></div>
+        <div class="audit-price-sub">Paiement sécurisé · Résultats sous 5 jours</div>
+        <ul class="audit-list">
+          <li><span class="chk">✓</span>Analyse sur extraits ou documents anonymisés — échantillon représentatif de vos AO</li>
+          <li><span class="chk">✓</span>Audit du capital documentaire existant — mémoires, certifications, process, fiches métier</li>
+          <li><span class="chk">✓</span>Radar de maturité IA sur 5 axes stratégiques — votre score réel</li>
+          <li><span class="chk">✓</span>Estimation des ressources mobilisées sur votre cycle de réponse AO</li>
+          <li><span class="chk">✓</span>Feuille de route opérationnelle personnalisée, priorisée et chiffrée</li>
+        </ul>
+        <div class="audit-disclaimer">Aucun accès complet aux données sensibles requis pour démarrer.</div>
+        <a href="https://book.stripe.com/aFa7sKfqe0Rc9xRb2daEE04" class="btn-p">Commander l'Audit — 950 € HT</a>
+      </div>
+      <div class="audit-side">
+        <h3>Échanger 15 minutes</h3>
+        <p>Un appel de qualification pour valider les hypothèses de cette analyse et identifier vos leviers prioritaires.</p>
+        <ul class="side-list">
+          <li>Identifier les freins opérationnels réels</li>
+          <li>Valider les leviers d'optimisation prioritaires</li>
+          <li>Estimer le potentiel de gain de capacité</li>
+        </ul>
+        <a href="https://calendly.com/contact-logos-impact/diagnostic-strategique-15-min" class="btn-s">Réserver un échange gratuit</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BANNER ════════════════════════════════════════ -->
+<div class="banner">
+  <div class="banner-inner">
+    <div class="banner-text">
+      <h2>DECA PROPRETE NORMANDIE-CENTRE-LOIRE I dispose des références<br>et du savoir-faire.<br><em>L'enjeu est de libérer ce capital.</em></h2>
+      <p>Concentrer la capacité documentaire sur la stratégie et la relation acheteur — plutôt que sur la production répétitive.</p>
+    </div>
+    <div class="banner-btns">
+      <a href="https://book.stripe.com/aFa7sKfqe0Rc9xRb2daEE04" class="bb-p">Commander l'Audit — 950 € HT</a>
+      <a href="https://calendly.com/contact-logos-impact/diagnostic-strategique-15-min" class="bb-s">Échanger 15 min</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ════════════════════════════════════════ -->
+<footer>
+  <div class="logo">LOGOS-<span>IMPACT</span></div>
+  <div class="footer-links">
+    <a href="https://docs.google.com/document/d/1-EJfdoHVsj6rHKzponAkasa9OtvSslmb86xx_uMDncU/edit" target="_blank">Mentions légales</a>
+    <a href="mailto:contact@logos-impact.fr">contact@logos-impact.fr</a>
+    <a href="https://logos-impact.fr" target="_blank">logos-impact.fr</a>
+  </div>
+  <div class="footer-copy">© 2026 Logos-Impact · Analyse confidentielle</div>
+</footer>
+
+<script>
+// CountUp sur les KPI au scroll
+document.querySelectorAll('[data-target]').forEach(el => {
+  const obs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      const target = parseFloat(el.dataset.target);
+      if (isNaN(target)) return;
+      const dur = 1100, start = performance.now();
+      const run = now => {
+        const p = Math.min((now - start) / dur, 1);
+        el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target);
+        if (p < 1) requestAnimationFrame(run);
+      };
+      requestAnimationFrame(run);
+      obs.disconnect();
+    }
+  }, { threshold: 0.5 });
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
