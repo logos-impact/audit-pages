@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analyse · PRO HYGIENE SOLUTION · Logos-Impact</title>
+<!--
+  ═══════════════════════════════════════════════════
+  VARIABLES WORKFLOW GITHUB — À injecter pour chaque prospect
+  ═══════════════════════════════════════════════════
+  PRO HYGIENE SOLUTION        Nom de l'entreprise prospect
+  Nettoyage / Propreté           nettoyage / sécurité / BTP / autre
+  PRO HYGIENE SOLUTION évolue dans le secteur propreté/hygiène. L'entreprise a remporté un accord-cadre de 139 980 € auprès de 13 Habitat pour des prestations 3D (désinfection, désinsectisation, dératisation) et ramonage. Avec 22 réponses annuelles estimées, la charge administrative représente environ 264 heures de production documentaire par an.             2-3 phrases factuelles issues de l'analyse IA (BOAMP + SIREN)
+  22             Nombre d'AO estimés/an — calculé par le prompt IA
+                        Logique : CA → secteur → volumétrie sectorielle
+                        Ex : BTP 2M€ → ~15 AO/an / Nettoyage 1M€ → ~20 AO/an
+  385   = NB_AO × 25,5 h (gain moyen par dossier)
+  15 = HEURES_LIBEREES / 25 (AO supplémentaires traitables)
+  900 000 € Estimation CA public adressable en plus (AO_SUPPLEMENTAIRES × ticket moyen secteur)
+  PRESTATIONS DE DESINFECTION, DESINSECTISATION, DERATISATION ET RAMONAGE SUR LE PATRIMOINE DE 13 HABITAT. ACCORD CADRE A BONS DE COMMANDE.   Intitulé dernier marché BOAMP
+  78285569600020          Acheteur public BOAMP
+  139 980,89           Montant attribué HT
+  Sur la base des standards sectoriels observés, les douleurs identifiées portent sur la conformité multi-lots (hygiène, nuisibles, ramonage), la traçabilité réglementaire CERTIBIOCIDE, l'harmonisation des PPSPS selon les sites d'intervention, et la gestion administrative des bons de commande fractionnés. La diversité technique des prestations impose une rigueur documentaire renforcée.           Analyse opérationnelle texte libre (IA)
+  Analyse détaillée possible lors de l'audit sur dossiers récents.       Environnement concurrentiel texte libre (IA)
+  Conformité RSE & écolabels  Ligne conformité adaptée au secteur :
+                        Nettoyage → "Conformité RSE & écolabels"
+                        Sécurité  → "Conformité CNAPS & agrément"
+                        BTP       → "Conformité Qualibat & décennale"
+  ═══════════════════════════════════════════════════
+-->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:       #0D1B2A;
+    --navy-mid:   #14263A;
+    --gold:       #E8A020;
+    --gold-light: #F5B840;
+    --white:      #FFFFFF;
+    --off-white:  #F7F8FA;
+    --light-gray: #F0F2F5;
+    --mid-gray:   #E2E6EA;
+    --text-dark:  #0D1B2A;
+    --text-mid:   #3D4F60;
+    --text-light: #6B7D8E;
+    --green:      #1A9E6E;
+    --border:     #DDE2E8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-dark);
+    background: var(--white);
+    line-height: 1.6;
+  }
+
+  /* ─── HEADER ─────────────────────────────── */
+  .site-header {
+    background: var(--navy);
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky; top: 0; z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .logo {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 900; font-size: 1.15rem;
+    color: var(--white); letter-spacing: 0.02em;
+  }
+  .logo span { color: var(--gold); }
+  .header-badge {
+    font-size: 0.68rem; font-weight: 500;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.12em; text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 4px 12px; border-radius: 20px;
+  }
+
+  /* ─── HERO ───────────────────────────────── */
+  .hero {
+    background: var(--navy);
+    padding: 64px 48px 72px;
+    position: relative; overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; top: -80px; right: -80px;
+    width: 480px; height: 480px;
+    background: radial-gradient(circle, rgba(232,160,32,0.07) 0%, transparent 68%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 920px; margin: 0 auto; }
+
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 32px;
+  }
+  .eyebrow-badge {
+    font-size: 0.65rem; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(232,160,32,0.25);
+    padding: 5px 12px; border-radius: 3px;
+  }
+  .eyebrow-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.2); }
+  .eyebrow-source { font-size: 0.7rem; color: rgba(255,255,255,0.25); }
+
+  /* Hero title — structure claire pour les variables */
+  .hero-company {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(0.72rem, 1.4vw, 0.85rem);
+    font-weight: 600;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .hero-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 8px;
+    max-width: 760px;
+  }
+  .hero-title-accent {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1.1;
+    margin-bottom: 28px;
+    display: block;
+  }
+  .hero-intro {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.58);
+    max-width: 600px;
+    line-height: 1.75;
+    margin-bottom: 48px;
+  }
+
+  /* KPI strip */
+  .kpi-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.03);
+    margin-bottom: 28px;
+  }
+  .kpi-cell {
+    padding: 22px 24px;
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+  .kpi-cell:last-child { border-right: none; }
+  .kpi-val {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.7rem; font-weight: 900;
+    color: var(--gold); line-height: 1;
+    margin-bottom: 5px;
+  }
+  .kpi-lbl { font-size: 0.72rem; color: rgba(255,255,255,0.42); line-height: 1.4; }
+  .kpi-hint { font-size: 0.62rem; color: rgba(255,255,255,0.2); margin-top: 3px; font-style: italic; }
+
+  /* BOAMP card */
+  .boamp-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-left: 3px solid var(--gold);
+    border-radius: 6px;
+    padding: 18px 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+  }
+  .boamp-field {}
+  .boamp-key {
+    font-size: 0.62rem; letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.28); margin-bottom: 5px;
+  }
+  .boamp-val {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700;
+    font-size: 0.9rem; color: var(--white);
+  }
+  .boamp-val.gold { color: var(--gold); font-size: 1.25rem; }
+  .boamp-source { font-size: 0.62rem; color: rgba(255,255,255,0.18); margin-top: 3px; }
+
+  /* ─── LAYOUT HELPERS ─────────────────────── */
+  .section { padding: 80px 48px; }
+  .section-inner { max-width: 920px; margin: 0 auto; }
+  .s-white    { background: var(--white); }
+  .s-offwhite { background: var(--off-white); }
+
+  .sec-badge {
+    display: inline-block;
+    font-size: 0.62rem; font-weight: 600;
+    letter-spacing: 0.13em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 3px;
+    margin-bottom: 14px;
+  }
+  .b-gold  { background: rgba(232,160,32,0.1);  color: var(--gold);      border: 1px solid rgba(232,160,32,0.22); }
+  .b-navy  { background: rgba(13,27,42,0.06);   color: var(--navy);      border: 1px solid rgba(13,27,42,0.14); }
+  .b-green { background: rgba(26,158,110,0.08); color: var(--green);     border: 1px solid rgba(26,158,110,0.2); }
+
+  .sec-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+    font-weight: 800; color: var(--text-dark);
+    line-height: 1.2; margin-bottom: 10px;
+  }
+  .sec-title .gold { color: var(--gold); }
+  .sec-sub {
+    font-size: 0.95rem; color: var(--text-mid);
+    max-width: 600px; line-height: 1.72;
+    margin-bottom: 44px;
+  }
+  hr.divider { border: none; border-top: 1px solid var(--border); }
+
+  /* ─── IMPACT METRICS (remplace T.H.E.) ────── */
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .impact-card {
+    background: var(--navy);
+    border-radius: 10px;
+    padding: 28px 32px;
+  }
+  .impact-icon { font-size: 1.4rem; margin-bottom: 14px; }
+  .impact-figure {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.9rem; font-weight: 900;
+    color: var(--gold); line-height: 1;
+    margin-bottom: 6px;
+  }
+  .impact-label { font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-bottom: 10px; }
+  .impact-desc  { font-size: 0.78rem; color: rgba(255,255,255,0.3); line-height: 1.55; font-style: italic; }
+
+  /* ─── FRICTION TABLE ──────────────────────── */
+  .table-wrap { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 10px; }
+  table.ft { width: 100%; border-collapse: collapse; }
+  table.ft th {
+    text-align: left; font-size: 0.62rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-light);
+    padding: 12px 18px; background: var(--light-gray);
+    border-bottom: 1px solid var(--border);
+  }
+  table.ft td {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.875rem;
+  }
+  table.ft tr:last-child td { border-bottom: none; background: rgba(232,160,32,0.04); font-weight: 700; }
+  .t-before { color: var(--text-light); text-decoration: line-through; }
+  .t-after  { color: var(--green); font-weight: 600; }
+  .t-gain   { color: var(--gold); font-weight: 700; }
+  .table-note { font-size: 0.68rem; color: var(--text-light); font-style: italic; margin-bottom: 40px; }
+
+  /* ─── ANALYSE + CONCURRENTS ───────────────── */
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 680px) { .info-grid { grid-template-columns: 1fr; } }
+  .info-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px 28px;
+  }
+  .info-card.full { grid-column: 1 / -1; border-top: 3px solid var(--text-mid); }
+  .info-card.primary { border-top: 3px solid var(--navy); }
+  .info-lbl { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-light); margin-bottom: 10px; }
+  .info-body { font-size: 0.875rem; color: var(--text-mid); line-height: 1.7; }
+  .info-body strong { color: var(--text-dark); }
+
+  /* ─── LEVIERS ─────────────────────────────── */
+  .leviers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px; margin-bottom: 40px;
+  }
+  .levier {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px 26px;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .levier:hover { box-shadow: 0 8px 28px rgba(13,27,42,0.08); transform: translateY(-2px); }
+  .levier-n {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 2.2rem; font-weight: 900;
+    color: rgba(232,160,32,0.18); line-height: 1;
+    margin-bottom: 10px;
+  }
+  .levier-t { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--text-dark); margin-bottom: 8px; }
+  .levier-b { font-size: 0.85rem; color: var(--text-mid); line-height: 1.65; margin-bottom: 14px; }
+  .levier-tag {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: rgba(26,158,110,0.07);
+    border: 1px solid rgba(26,158,110,0.18);
+    border-radius: 4px; padding: 4px 10px;
+    font-size: 0.72rem; font-weight: 600;
+    color: var(--green);
+  }
+
+  /* ─── AVANT/APRÈS ─────────────────────────── */
+  .aa-wrap {
+    display: grid;
+    grid-template-columns: 1fr 48px 1fr;
+    gap: 0; align-items: center;
+    margin-bottom: 8px;
+  }
+  @media (max-width: 640px) {
+    .aa-wrap { grid-template-columns: 1fr; }
+    .aa-arrow { transform: rotate(90deg); padding: 8px 0; }
+  }
+  .aa-col { border-radius: 10px; overflow: hidden; }
+  .col-b  { background: var(--off-white); border: 1px solid var(--border); }
+  .col-a  { background: var(--navy); }
+  .aa-arrow { display: flex; align-items: center; justify-content: center; color: var(--gold); }
+  .aa-head { padding: 13px 18px; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+  .col-b .aa-head { color: var(--text-light); border-bottom: 1px solid var(--border); }
+  .col-a .aa-head { color: rgba(255,255,255,0.35); border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .aa-row { display: flex; justify-content: space-between; padding: 11px 18px; border-bottom: 1px solid; font-size: 0.875rem; }
+  .col-b .aa-row { border-color: var(--border); color: var(--text-mid); }
+  .col-a .aa-row { border-color: rgba(255,255,255,0.05); color: rgba(255,255,255,0.55); }
+  .col-b .aa-row .v { text-decoration: line-through; color: var(--text-light); }
+  .col-a .aa-row .v { color: var(--gold); font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif; }
+  .aa-total { padding: 15px 18px; display: flex; justify-content: space-between; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; }
+  .col-b .aa-total { color: var(--text-mid); }
+  .col-b .aa-total .v { font-size: 1.35rem; color: var(--text-dark); }
+  .col-a .aa-total { color: rgba(255,255,255,0.45); }
+  .col-a .aa-total .v { font-size: 1.35rem; color: var(--gold); }
+
+  /* ─── SOLUTION DOC ────────────────────────── */
+  .steps { display: flex; flex-direction: column; }
+  .step  { display: flex; gap: 20px; padding: 28px 0; border-bottom: 1px solid var(--border); }
+  .step:last-child { border-bottom: none; }
+  .step-n {
+    flex-shrink: 0; width: 38px; height: 38px;
+    background: var(--navy); color: var(--gold);
+    border-radius: 7px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 0.9rem;
+  }
+  .step-content {}
+  .step-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--text-dark); margin-bottom: 6px; }
+  .step-text  { font-size: 0.85rem; color: var(--text-mid); line-height: 1.65; }
+  .step-tags  { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+  .step-tag   { font-size: 0.68rem; font-weight: 500; background: var(--light-gray); color: var(--text-mid); padding: 3px 9px; border-radius: 4px; border: 1px solid var(--border); }
+
+  /* ─── RADAR — sans scores ─────────────────── */
+  .radar-layout { display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
+  .radar-svg-box { flex: 0 0 260px; }
+  .radar-right   { flex: 1; min-width: 220px; }
+  .radar-axes    { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+  .radar-ax      { display: flex; align-items: center; gap: 12px; }
+  .ax-dot        { width: 8px; height: 8px; border-radius: 50%; background: var(--mid-gray); flex-shrink: 0; }
+  .ax-label      { font-size: 0.85rem; color: var(--text-dark); font-weight: 500; flex: 1; }
+  .ax-bar        { width: 80px; height: 4px; background: var(--mid-gray); border-radius: 2px; }
+  .radar-teaser  {
+    background: rgba(232,160,32,0.06);
+    border: 1px solid rgba(232,160,32,0.2);
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .radar-teaser-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-dark); margin-bottom: 6px; }
+  .radar-teaser-body  { font-size: 0.78rem; color: var(--text-mid); line-height: 1.6; }
+  .radar-teaser-body strong { color: var(--gold); }
+
+  /* ─── SECURITE ────────────────────────────── */
+  .sec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 640px) { .sec-grid { grid-template-columns: 1fr; } }
+  .sec-card { background: var(--navy); border-radius: 10px; padding: 26px 28px; }
+  .sec-icon  { font-size: 1.3rem; margin-bottom: 12px; }
+  .sec-card-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--white); margin-bottom: 12px; }
+  .sec-list  { list-style: none; }
+  .sec-list li { font-size: 0.8rem; color: rgba(255,255,255,0.48); line-height: 1.6; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; gap: 8px; }
+  .sec-list li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+
+  /* ─── AUDIT ───────────────────────────────── */
+  .audit-layout { display: grid; grid-template-columns: 3fr 2fr; gap: 22px; align-items: start; }
+  @media (max-width: 720px) { .audit-layout { grid-template-columns: 1fr; } }
+  .audit-main { background: var(--navy); border-radius: 12px; padding: 36px 38px; }
+  .audit-price { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.5rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+  .audit-price-sub { font-size: 0.72rem; color: rgba(255,255,255,0.28); margin-bottom: 26px; }
+  .audit-list { list-style: none; margin-bottom: 28px; }
+  .audit-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.85rem; color: rgba(255,255,255,0.65); padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.05); line-height: 1.5; }
+  .audit-list li:last-child { border-bottom: none; }
+  .chk { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+  .audit-disclaimer { font-size: 0.68rem; color: rgba(255,255,255,0.22); font-style: italic; margin-bottom: 24px; }
+  .btn-p {
+    display: block; width: 100%; text-align: center;
+    background: var(--gold); color: var(--navy);
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.875rem;
+    padding: 15px 20px; border-radius: 6px;
+    text-decoration: none; letter-spacing: 0.02em;
+    transition: background 0.15s, transform 0.1s;
+  }
+  .btn-p:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .audit-side { background: var(--off-white); border: 1px solid var(--border); border-radius: 12px; padding: 26px 28px; }
+  .audit-side h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--text-dark); margin-bottom: 6px; }
+  .audit-side p { font-size: 0.82rem; color: var(--text-mid); line-height: 1.6; margin-bottom: 18px; }
+  .side-list { list-style: none; margin-bottom: 20px; }
+  .side-list li { display: flex; gap: 8px; font-size: 0.8rem; color: var(--text-mid); padding: 5px 0; }
+  .side-list li::before { content: '→'; color: var(--gold); flex-shrink: 0; }
+  .btn-s {
+    display: block; width: 100%; text-align: center;
+    background: transparent; color: var(--navy);
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.85rem;
+    padding: 13px 20px; border-radius: 6px;
+    text-decoration: none; border: 2px solid var(--navy);
+    transition: background 0.15s, color 0.15s;
+  }
+  .btn-s:hover { background: var(--navy); color: var(--white); }
+
+  /* ─── BANNER ──────────────────────────────── */
+  .banner { background: var(--navy); padding: 60px 48px; }
+  .banner-inner { max-width: 920px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; }
+  .banner-text h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.45rem; font-weight: 800; color: var(--white); margin-bottom: 8px; line-height: 1.25; }
+  .banner-text h2 em { color: var(--gold); font-style: normal; }
+  .banner-text p { font-size: 0.85rem; color: rgba(255,255,255,0.45); max-width: 460px; line-height: 1.65; }
+  .banner-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+  .bb-p { background: var(--gold); color: var(--navy); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.85rem; padding: 13px 26px; border-radius: 6px; text-decoration: none; white-space: nowrap; }
+  .bb-s { background: transparent; color: rgba(255,255,255,0.6); font-size: 0.85rem; font-weight: 500; padding: 13px 26px; border-radius: 6px; text-decoration: none; border: 1px solid rgba(255,255,255,0.18); white-space: nowrap; }
+
+  /* ─── FOOTER ─────────────────────────────── */
+  footer { background: #07101A; padding: 26px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .footer-links { display: flex; gap: 22px; }
+  .footer-links a { font-size: 0.72rem; color: rgba(255,255,255,0.28); text-decoration: none; }
+  .footer-links a:hover { color: rgba(255,255,255,0.55); }
+  .footer-copy { font-size: 0.68rem; color: rgba(255,255,255,0.18); }
+
+  /* ─── CTA HERO ───────────────────────────── */
+  .hero-cta-bar { display:flex; gap:12px; flex-wrap:wrap; margin-top:32px; }
+  .btn-hero-p {
+    background: var(--gold); color: var(--navy);
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.85rem;
+    padding: 13px 26px; border-radius: 6px; text-decoration: none; white-space: nowrap;
+    transition: background 0.15s;
+  }
+  .btn-hero-p:hover { background: var(--gold-light); }
+  .btn-hero-s {
+    background: transparent; color: rgba(255,255,255,0.7);
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 0.85rem;
+    padding: 13px 26px; border-radius: 6px; text-decoration: none; white-space: nowrap;
+    border: 1px solid rgba(255,255,255,0.2); transition: border-color 0.15s;
+  }
+  .btn-hero-s:hover { border-color: rgba(255,255,255,0.45); }
+
+  /* ─── TENSION BLOCK ──────────────────────── */
+  .tension-block {
+    background: rgba(232,160,32,0.04);
+    border: 1px solid rgba(232,160,32,0.15);
+    border-left: 3px solid var(--gold);
+    border-radius: 6px;
+    padding: 18px 24px;
+    margin-bottom: 40px;
+    font-size: 0.875rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+  .tension-block strong { color: var(--text-dark); }
+
+  /* ─── POURQUOI AUDIT ─────────────────────── */
+  .why-audit {
+    background: var(--navy);
+    border-radius: 10px;
+    padding: 32px 36px;
+    margin-bottom: 32px;
+  }
+  .why-audit-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 1rem; color: var(--white); margin-bottom: 12px; }
+  .why-audit-points { list-style: none; }
+  .why-audit-points li { font-size: 0.85rem; color: rgba(255,255,255,0.6); padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; gap: 10px; line-height: 1.55; }
+  .why-audit-points li:last-child { border-bottom: none; }
+  .why-audit-points li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+  .why-audit-note { font-size: 0.75rem; color: rgba(255,255,255,0.28); margin-top: 16px; font-style: italic; }
+
+  /* ─── DISCLAIMER ─────────────────────────── */
+  .legal-note { font-size: 0.68rem; color: var(--text-light); font-style: italic; margin-top: 12px; line-height: 1.5; }
+
+  /* ─── PUNCHLINE ─────────────────────────────── */
+  .punchline {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem; font-weight: 700;
+    color: var(--text-dark);
+    padding: 20px 0 4px;
+    line-height: 1.4;
+  }
+  .punchline em { color: var(--gold); font-style: normal; }
+
+  /* ─── AUDIT OUTCOME ──────────────────────── */
+  .audit-outcome {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+  }
+  .audit-outcome-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700; font-size: 0.95rem;
+    color: var(--text-dark); margin-bottom: 16px;
+  }
+  .audit-outcome ul { list-style: none; }
+  .audit-outcome ul li {
+    font-size: 0.875rem; color: var(--text-mid);
+    padding: 8px 0; border-bottom: 1px solid var(--border);
+    display: flex; gap: 10px; line-height: 1.5;
+  }
+  .audit-outcome ul li:last-child { border-bottom: none; }
+  .audit-outcome ul li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+
+  /* ─── TRIGGER PHRASE ─────────────────────── */
+  .trigger-phrase {
+    font-size: 0.9rem; color: var(--text-mid);
+    font-style: italic; margin-bottom: 20px;
+    padding: 14px 18px;
+    border-left: 2px solid var(--gold);
+    background: rgba(232,160,32,0.04);
+    border-radius: 0 6px 6px 0;
+  }
+
+  /* ─── RESPONSIVE ──────────────────────────── */
+  @media (max-width: 720px) {
+    .section, .hero { padding-left: 24px; padding-right: 24px; }
+    .site-header { padding: 14px 24px; }
+    .banner { padding: 48px 24px; }
+    footer { padding: 22px 24px; flex-direction: column; align-items: flex-start; }
+    .kpi-strip { grid-template-columns: 1fr 1fr; }
+    .kpi-cell { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══════════════════════════════════════ -->
+<header class="site-header">
+  <div class="logo">LOGOS-<span>IMPACT</span></div>
+  <div class="header-badge">Analyse opérationnelle · Confidentiel</div>
+</header>
+
+<!-- ══ HERO ════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <div class="hero-eyebrow">
+      <span class="eyebrow-badge">Diagnostic opérationnel</span>
+      <span class="eyebrow-dot"></span>
+      <span class="eyebrow-source">Données BOAMP · SIREN · Analyse IA</span>
+    </div>
+
+    <div class="hero-company">PRO HYGIENE SOLUTION</div>
+    <h1 class="hero-title">Libérer de la capacité pour répondre</h1>
+    <span class="hero-title-accent">à plus de marchés — dans de meilleures conditions.</span>
+
+    <p class="hero-intro">PRO HYGIENE SOLUTION évolue dans le secteur propreté/hygiène. L'entreprise a remporté un accord-cadre de 139 980 € auprès de 13 Habitat pour des prestations 3D (désinfection, désinsectisation, dératisation) et ramonage. Avec 22 réponses annuelles estimées, la charge administrative représente environ 264 heures de production documentaire par an.</p>
+    <p class="punchline">Le problème n'est pas le manque de dossiers.<br><em>C'est le temps que chaque dossier consomme.</em></p>
+
+    <div class="kpi-strip">
+      <div class="kpi-cell">
+        <div class="kpi-val" data-target="385">385</div>
+        <div class="kpi-lbl">Heures potentiellement libérables / an</div>
+        <div class="kpi-hint">Estimation · hypothèse 22 AO/an · à valider en audit</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-val">+15</div>
+        <div class="kpi-lbl">AO supplémentaires envisageables</div>
+        <div class="kpi-hint">Ordre de grandeur · même équipe · hypothèse sectorielle</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-val">~30 min</div>
+        <div class="kpi-lbl">Analyse DCE assistée par IA</div>
+        <div class="kpi-hint">Observé dans certains cas · vs 6 h manuellement · contrôle humain inclus</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-val">jusqu'à −80 %</div>
+        <div class="kpi-lbl">Temps de rédaction V1 mémoire</div>
+        <div class="kpi-hint">Ordre de grandeur sectoriel · selon capital documentaire existant</div>
+      </div>
+    </div>
+
+    <!-- BOAMP -->
+    <div class="boamp-card">
+      <div class="boamp-field">
+        <div class="boamp-key">Dernier marché remporté</div>
+        <div class="boamp-val">PRESTATIONS DE DESINFECTION, DESINSECTISATION, DERATISATION ET RAMONAGE SUR LE PATRIMOINE DE 13 HABITAT. ACCORD CADRE A BONS DE COMMANDE.</div>
+      </div>
+      <div class="boamp-field">
+        <div class="boamp-key">Acheteur public</div>
+        <div class="boamp-val">78285569600020</div>
+      </div>
+      <div class="boamp-field">
+        <div class="boamp-key">Montant attribué</div>
+        <div class="boamp-val gold">139 980,89 €</div>
+        <div class="boamp-source">Source : BOAMP · données publiques</div>
+      </div>
+      <div class="boamp-field">
+        <div class="boamp-key">Volume AO estimé</div>
+        <div class="boamp-val">22 / an</div>
+        <div class="boamp-source">Base CA secteur · hypothèse</div>
+      </div>
+    </div>
+
+    <div class="hero-cta-bar">
+      <a href="https://calendly.com/contact-logos-impact/diagnostic-strategique-15-min" class="btn-hero-s">Valider ces hypothèses en 15 min</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ S1 — IMPACT BUSINESS ════════════════════════ -->
+<section class="section s-offwhite">
+  <div class="section-inner">
+    <span class="sec-badge b-navy">Charge opérationnelle</span>
+    <h2 class="sec-title">Ce que représente votre cycle<br><span class="gold">de réponse AO — en ordre de grandeur</span></h2>
+    <p class="sec-sub">Estimations indicatives construites sur des hypothèses sectorielles — base de travail à affiner lors de l'audit sur vos dossiers réels.</p>
+
+    <div class="tension-block">
+      <strong>Ce que révèle ce type d'analyse :</strong> dans la majorité des structures de ce profil, la charge documentaire représente un plafond de croissance invisible. Chaque dossier mobilise une ressource rare — le temps qualifié des équipes — sur des tâches à faible valeur ajoutée.<br><br>Ce coût ne figure sur aucune ligne comptable. Mais il contraint mécaniquement la capacité à répondre davantage — ou mieux.
+    </div>
+    <p class="punchline">Le problème n'est pas technique.<br><em>Il est structurel.</em></p>
+
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-icon">⏱</div>
+        <div class="impact-figure">~385 h</div>
+        <div class="impact-label">Capacité libérable / an — sans recruter</div>
+        <div class="impact-desc">Estimation · hypothèse 22 AO/an × 25 h/dossier · base sectorielle Nettoyage / Propreté · à valider</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon">📋</div>
+        <div class="impact-figure">+15</div>
+        <div class="impact-label">AO supplémentaires traitables — même effectif</div>
+        <div class="impact-desc">Ordre de grandeur · si la charge par dossier est réduite · même effectif · hypothèse</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon">📈</div>
+        <div class="impact-figure">900 000 €</div>
+        <div class="impact-label">CA public adressable en plus — ordre de grandeur</div>
+        <div class="impact-desc">Hypothèse ticket moyen secteur · ordre de grandeur · non garanti</div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="ft">
+        <thead>
+          <tr>
+            <th>Phase de réponse</th>
+            <th>Processus manuel actuel</th>
+            <th>Avec assistance IA</th>
+            <th>Écart estimé / dossier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Lecture &amp; Analyse DCE (CCTP/CCAP/RC)</td>
+            <td class="t-before">~6 h</td>
+            <td class="t-after">~30 min</td>
+            <td class="t-gain">jusqu'à −5,5 h</td>
+          </tr>
+          <tr>
+            <td>Recherche documentaire interne</td>
+            <td class="t-before">~4 h</td>
+            <td class="t-after">~20 min</td>
+            <td class="t-gain">jusqu'à −3,7 h</td>
+          </tr>
+          <tr>
+            <td>Rédaction mémoire technique (V1)</td>
+            <td class="t-before">~15 h</td>
+            <td class="t-after">~2 h</td>
+            <td class="t-gain">jusqu'à −13 h</td>
+          </tr>
+          <tr>
+            <td>Conformité RSE & écolabels</td>
+            <td class="t-before">~4 h</td>
+            <td class="t-after">~30 min</td>
+            <td class="t-gain">jusqu'à −3,5 h</td>
+          </tr>
+          <tr>
+            <td><strong>Total par dossier</strong></td>
+            <td class="t-before"><strong>~29 h</strong></td>
+            <td class="t-after"><strong>~3,5 h</strong></td>
+            <td class="t-gain"><strong>jusqu'à −25,5 h</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">Estimations sectorielles indicatives — observées dans des contextes similaires · les gains réels dépendent du capital documentaire existant et sont affinés lors de l'audit</p>
+    <p class="legal-note">Analyse réalisée à partir de données publiques (BOAMP, sources ouvertes). Les estimations présentées constituent des ordres de grandeur observés et non des engagements de résultat.</p>
+    <div style="margin-top:24px; margin-bottom:8px;">
+      <a href="https://calendly.com/contact-logos-impact/diagnostic-strategique-15-min" class="btn-s" style="display:inline-block;width:auto;">Valider ces hypothèses sur un dossier réel</a>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card primary">
+        <div class="info-lbl">Analyse opérationnelle</div>
+        <div class="info-body">Sur la base des standards sectoriels observés, les douleurs identifiées portent sur la conformité multi-lots (hygiène, nuisibles, ramonage), la traçabilité réglementaire CERTIBIOCIDE, l'harmonisation des PPSPS selon les sites d'intervention, et la gestion administrative des bons de commande fractionnés. La diversité technique des prestations impose une rigueur documentaire renforcée.</div>
+      </div>
+      <div class="info-card full">
+        <div class="info-lbl">Environnement concurrentiel — zone identifiée</div>
+        <div class="info-body">Analyse détaillée possible lors de l'audit sur dossiers récents.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══ S2 — LEVIERS ════════════════════════════════ -->
+<section class="section s-white">
+  <div class="section-inner">
+    <span class="sec-badge b-gold">Optimisation immédiate</span>
+    <h2 class="sec-title">3 leviers activables rapidement<br><span class="gold">— sans investissement technique</span></h2>
+    <p class="sec-sub">Avant même de déployer une base documentaire structurée, trois leviers opérationnels sont accessibles en quelques jours — sans modification de l'organisation ni recrutement. Dans les contextes observés, ils permettent de libérer significativement du temps qualifié dès les premières semaines.</p>
+
+    <div class="leviers-grid">
+      <div class="levier">
+        <div class="levier-n">01</div>
+        <div class="levier-t">Analyse structurée du DCE</div>
+        <div class="levier-b">Un agent IA analyse le cahier des charges et restitue un tableau opérationnel : critères de jugement, pièces obligatoires, clauses de pénalité, points de vigilance RSE. La vérification humaine reste intégrée — l'outil ne se substitue pas au jugement technique.</div>
+        <div class="levier-tag">Observé : jusqu'à −5 h par dossier dans certains contextes</div>
+      </div>
+      <div class="levier">
+        <div class="levier-n">02</div>
+        <div class="levier-t">Indicateur d'aide à la décision — mémoire vs DCE</div>
+        <div class="levier-b">L'IA évalue le mémoire en cours de rédaction au regard des critères DCE pondérés et produit un indicateur interne par lot — identifiant les points à consolider avant dépôt. Cet indicateur est un outil d'aide à la décision interne, non une projection de résultat. Le processus peut être itéré deux fois sur une même version.</div>
+        <div class="levier-tag">Aide à la décision interne · validation humaine obligatoire</div>
+      </div>
+      <div class="levier">
+        <div class="levier-n">03</div>
+        <div class="levier-t">Qualification Go / No-Go assistée</div>
+        <div class="levier-b">Pour chaque appel d'offres identifié, un indicateur de compatibilité est calculé — zone, profil acheteur, concurrents connus, enveloppe estimée. Cet indicateur oriente la priorisation interne ; la décision de candidater reste à l'appréciation de la direction.</div>
+        <div class="levier-tag">Outil de priorisation interne · non décisionnel</div>
+      </div>
+    </div>
+
+    <div class="aa-wrap">
+      <div class="aa-col col-b">
+        <div class="aa-head">Processus actuel — Manuel</div>
+        <div class="aa-row"><span>Analyse DCE</span><span class="v">~6 h</span></div>
+        <div class="aa-row"><span>Recherche docs</span><span class="v">~4 h</span></div>
+        <div class="aa-row"><span>Rédaction mémoire</span><span class="v">~15 h</span></div>
+        <div class="aa-row"><span>Conformité</span><span class="v">~4 h</span></div>
+        <div class="aa-total"><span>Par dossier</span><span class="v">~29 h</span></div>
+      </div>
+      <div class="aa-arrow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+      <div class="aa-col col-a">
+        <div class="aa-head">Avec assistance IA — Estimé</div>
+        <div class="aa-row"><span>Analyse DCE</span><span class="v">~30 min</span></div>
+        <div class="aa-row"><span>Recherche docs</span><span class="v">~20 min</span></div>
+        <div class="aa-row"><span>Rédaction mémoire</span><span class="v">~2 h</span></div>
+        <div class="aa-row"><span>Conformité</span><span class="v">~30 min</span></div>
+        <div class="aa-total"><span>Par dossier</span><span class="v">~3,5 h</span></div>
+      </div>
+    </div>
+    <p class="punchline" style="margin-top:24px;">Et il est souvent invisible.<br><em>Jusqu'à ce qu'on le mesure.</em></p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══ S3 — BASE DOC ════════════════════════════════ -->
+<section class="section s-offwhite">
+  <div class="section-inner">
+    <span class="sec-badge b-navy">Solution documentaire</span>
+    <h2 class="sec-title">Une base de connaissance interne<br><span class="gold">connectée à l'IA</span></h2>
+    <p class="sec-sub">Répondre à plus de marchés sans recruter. Concentrer les efforts sur les dossiers à potentiel. Lisser la charge sans surcharge interne. Ce sont les effets observés lorsque le capital documentaire existant est structuré et rendu exploitable.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">01</div>
+        <div class="step-content">
+          <div class="step-title">Vos documents internes sont structurés et indexés</div>
+          <div class="step-text">Une seule fois au démarrage — puis enrichis à chaque nouveau dossier traité. Ce capital documentaire existe dans la plupart des entreprises de ce profil. Il est fréquemment dispersé et partiellement reconstruit à chaque dossier, sans capitalisation systématique.</div>
+          <div class="step-tags">
+            <span class="step-tag">Mémoires techniques existants</span>
+            <span class="step-tag">Certifications ISO / RSE / Écolabels</span>
+            <span class="step-tag">Fiches process &amp; métier</span>
+            <span class="step-tag">Références clients &amp; attestations</span>
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">02</div>
+        <div class="step-content">
+          <div class="step-title">Base de connaissance privée — données exclusivement internes</div>
+          <div class="step-text">Votre savoir-faire structuré, interrogeable de manière ciblée. Les données sont traitées via des environnements configurés pour ne pas alimenter les modèles tiers. Aucune source externe. La base s'enrichit à chaque nouveau dossier traité.</div>
+          <div class="step-tags">
+            <span class="step-tag">Données 100 % internes</span>
+            <span class="step-tag">Aucune source externe</span>
+            <span class="step-tag">Aligné avec les principes RGPD</span>
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">03</div>
+        <div class="step-content">
+          <div class="step-title">L'IA produit une V1 du mémoire technique à partir de vos sources</div>
+          <div class="step-text">En puisant exclusivement dans votre base documentaire. La V1 s'appuie sur vos références réelles, votre politique RSE et vos certifications. Dans les contextes observés, la phase de rédaction initiale peut être réduite de manière significative — la révision humaine restant indispensable.</div>
+          <div class="step-tags"><span class="step-tag">Sources internes uniquement</span><span class="step-tag">Révision humaine systématique</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">04</div>
+        <div class="step-content">
+          <div class="step-title">Révision &amp; validation humaine — étape non négociable</div>
+          <div class="step-text">Le bureau d'études ajuste, personnalise et valide chaque section avant tout dépôt. <strong>L'IA structure · Vous arbitrez · Vous signez.</strong> La responsabilité du contenu déposé demeure intégralement celle de l'entreprise.</div>
+          <div class="step-tags"><span class="step-tag">✓ Responsabilité humaine</span><span class="step-tag">Conforme aux exigences DCE</span><span class="step-tag">Cohérence documentaire</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══ S4 — RADAR + SECURITE ════════════════════════ -->
+<section class="section s-white">
+  <div class="section-inner">
+    <span class="sec-badge b-gold">Radar de performance</span>
+    <h2 class="sec-title">5 axes de performance documentaire<br><span class="gold">— où en est PRO HYGIENE SOLUTION ?</span></h2>
+    <p class="sec-sub">Ces 5 axes structurent l'Audit de Performance Documentaire. Votre score sur chacun révèle les gisements de gain prioritaires — et la feuille de route pour progresser.</p>
+
+    <div class="radar-layout" style="margin-bottom: 48px;">
+      <div class="radar-svg-box">
+        <svg viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+          <!-- Grid circles -->
+          <circle cx="140" cy="140" r="100" fill="none" stroke="#E2E6EA" stroke-width="1"/>
+          <circle cx="140" cy="140" r="75"  fill="none" stroke="#E2E6EA" stroke-width="1"/>
+          <circle cx="140" cy="140" r="50"  fill="none" stroke="#E2E6EA" stroke-width="1"/>
+          <circle cx="140" cy="140" r="25"  fill="none" stroke="#E2E6EA" stroke-width="1"/>
+          <!-- Score labels 1-5 on vertical axis -->
+          <text x="145" y="42"  font-size="7" fill="#C0CAD4" font-family="DM Sans,sans-serif">5</text>
+          <text x="145" y="67"  font-size="7" fill="#C0CAD4" font-family="DM Sans,sans-serif">4</text>
+          <text x="145" y="92"  font-size="7" fill="#C0CAD4" font-family="DM Sans,sans-serif">3</text>
+          <text x="145" y="117" font-size="7" fill="#C0CAD4" font-family="DM Sans,sans-serif">2</text>
+          <text x="145" y="140" font-size="7" fill="#C0CAD4" font-family="DM Sans,sans-serif">1</text>
+          <!-- Axes (5 branches) -->
+          <line x1="140" y1="40"  x2="140" y2="240" stroke="#DDE2E8" stroke-width="1"/>
+          <line x1="140" y1="140" x2="235" y2="81"  stroke="#DDE2E8" stroke-width="1"/>
+          <line x1="140" y1="140" x2="199" y2="215" stroke="#DDE2E8" stroke-width="1"/>
+          <line x1="140" y1="140" x2="81"  y2="215" stroke="#DDE2E8" stroke-width="1"/>
+          <line x1="140" y1="140" x2="45"  y2="81"  stroke="#DDE2E8" stroke-width="1"/>
+          <!-- Polygon masqué (scores révélés dans l'audit) — silhouette indicative -->
+          <polygon points="140,40 235,81 199,215 81,215 45,81"
+            fill="rgba(232,160,32,0.05)" stroke="rgba(232,160,32,0.25)" stroke-width="1.5" stroke-dasharray="6,4"/>
+          <!-- Point central -->
+          <circle cx="140" cy="140" r="3" fill="rgba(232,160,32,0.4)"/>
+          <!-- Labels axes -->
+          <text x="140" y="27" text-anchor="middle" font-size="9" font-weight="600" fill="#3D4F60" font-family="DM Sans,sans-serif">Structuration</text>
+          <text x="140" y="36" text-anchor="middle" font-size="8" fill="#6B7D8E" font-family="DM Sans,sans-serif">documentaire</text>
+          <text x="248" y="76" text-anchor="start" font-size="9" font-weight="600" fill="#3D4F60" font-family="DM Sans,sans-serif">Capitalisation</text>
+          <text x="248" y="86" text-anchor="start" font-size="8" fill="#6B7D8E" font-family="DM Sans,sans-serif">du savoir</text>
+          <text x="212" y="230" text-anchor="middle" font-size="9" font-weight="600" fill="#3D4F60" font-family="DM Sans,sans-serif">Compatibilité</text>
+          <text x="212" y="240" text-anchor="middle" font-size="8" fill="#6B7D8E" font-family="DM Sans,sans-serif">IA / RAG</text>
+          <text x="68"  y="230" text-anchor="middle" font-size="9" font-weight="600" fill="#3D4F60" font-family="DM Sans,sans-serif">Fluidité</text>
+          <text x="68"  y="240" text-anchor="middle" font-size="8" fill="#6B7D8E" font-family="DM Sans,sans-serif">processus AO</text>
+          <text x="12"  y="76" text-anchor="start" font-size="9" font-weight="600" fill="#3D4F60" font-family="DM Sans,sans-serif">Capacité de</text>
+          <text x="12"  y="86" text-anchor="start" font-size="8" fill="#6B7D8E" font-family="DM Sans,sans-serif">croissance</text>
+        </svg>
+      </div>
+      <div class="radar-right">
+        <div class="radar-axes">
+          <div class="radar-ax">
+            <div class="ax-dot" style="background:var(--gold);"></div>
+            <div style="flex:1;">
+              <div class="ax-label">Structuration documentaire</div>
+              <div style="font-size:0.72rem;color:var(--text-light);margin-top:2px;">Arborescence, naming, formats IA-compatibles</div>
+            </div>
+            <div class="ax-bar"></div>
+          </div>
+          <div class="radar-ax">
+            <div class="ax-dot" style="background:var(--gold);"></div>
+            <div style="flex:1;">
+              <div class="ax-label">Capitalisation du savoir</div>
+              <div style="font-size:0.72rem;color:var(--text-light);margin-top:2px;">Bibliothèque de briques, CV, références à jour</div>
+            </div>
+            <div class="ax-bar"></div>
+          </div>
+          <div class="radar-ax">
+            <div class="ax-dot" style="background:var(--gold);"></div>
+            <div style="flex:1;">
+              <div class="ax-label">Fluidité du processus AO</div>
+              <div style="font-size:0.72rem;color:var(--text-light);margin-top:2px;">Workflow clair, réduction des goulots humains</div>
+            </div>
+            <div class="ax-bar"></div>
+          </div>
+          <div class="radar-ax">
+            <div class="ax-dot" style="background:var(--gold);"></div>
+            <div style="flex:1;">
+              <div class="ax-label">Compatibilité IA / RAG</div>
+              <div style="font-size:0.72rem;color:var(--text-light);margin-top:2px;">Contenu modulaire prêt pour l'indexation sémantique</div>
+            </div>
+            <div class="ax-bar"></div>
+          </div>
+          <div class="radar-ax">
+            <div class="ax-dot" style="background:var(--gold);"></div>
+            <div style="flex:1;">
+              <div class="ax-label">Capacité de croissance</div>
+              <div style="font-size:0.72rem;color:var(--text-light);margin-top:2px;">Absorber +30 % de volume sans recrutement</div>
+            </div>
+            <div class="ax-bar"></div>
+          </div>
+        </div>
+        <div class="radar-teaser">
+          <div class="radar-teaser-title">Votre score réel sur ces 5 axes</div>
+          <div class="radar-teaser-body">Révélé dans l'<strong>Audit de Performance Documentaire</strong> — avec le score actuel vs score cible IA, et la feuille de route priorisée par axe.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sécurité données -->
+    <div class="sec-grid">
+      <div class="sec-card">
+        <div class="sec-icon">🔒</div>
+        <div class="sec-card-title">Traitement des données — approche rigoureuse</div>
+        <ul class="sec-list">
+          <li>API IA configurées sans réentraînement sur vos documents</li>
+          <li>Hébergement principalement localisé en Europe</li>
+          <li>Données non mutualisées entre clients distincts</li>
+          <li>Dispositif paramétrable selon les exigences de vos marchés</li>
+        </ul>
+      </div>
+      <div class="sec-card">
+        <div class="sec-icon">✓</div>
+        <div class="sec-card-title">Approche alignée avec les principes AI Act &amp; RGPD</div>
+        <ul class="sec-list">
+          <li>Systèmes transparents, traçables et auditables</li>
+          <li>Architecture alignée avec les principes RGPD en vigueur</li>
+          <li>Positionnement favorable lors des évaluations acheteurs sensibles</li>
+          <li>Décision humaine obligatoire avant tout dépôt — sans exception</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══ S5 — AUDIT ═══════════════════════════════════ -->
+<section class="section s-offwhite">
+  <div class="section-inner">
+    <span class="sec-badge b-gold">Accompagnement</span>
+    <h2 class="sec-title">Audit de Performance Documentaire</h2>
+    <p class="sec-sub">Un diagnostic structuré pour identifier vos gisements de gain opérationnel et définir une feuille de route adaptée. Les estimations produites constituent des ordres de grandeur à valider en contexte réel.</p>
+
+    <div class="why-audit">
+      <div class="why-audit-title">Pourquoi cet audit existe</div>
+      <ul class="why-audit-points">
+        <li>Pour éviter d'investir dans des outils IA avant de comprendre où se situent réellement les frictions de votre cycle de réponse.</li>
+        <li>Pour objectiver les gains envisageables — et distinguer ce qui est structurellement accessible de ce qui dépend de votre capital documentaire actuel.</li>
+        <li>Pour prioriser les actions à fort levier avant toute automatisation — et ne pas industrialiser l'inefficacité.</li>
+      </ul>
+
+    </div>
+
+    <div class="audit-outcome">
+      <div class="audit-outcome-title">À l'issue de cet audit, vous aurez :</div>
+      <ul>
+        <li>Une estimation claire et chiffrée de votre capacité de réponse actuelle — par rapport à votre volume d'AO identifié</li>
+        <li>L'identification des deux ou trois frictions les plus coûteuses en temps qualifié sur votre cycle de réponse</li>
+        <li>Trois leviers activables immédiatement — sans recrutement ni infrastructure technique préalable</li>
+        <li>Une feuille de route opérationnelle exploitable par vos équipes, priorisée et chiffrée</li>
+        <li>Une vision chiffrée du potentiel d'amélioration — en heures libérées, en volume de dossiers et en capacité adressable</li>
+        <li>Un kit opérationnel IA personnalisé — 4 outils internes prêts à l'emploi pour vos équipes, sans dépendance technique externe</li>
+      </ul>
+    </div>
+
+    <div class="audit-layout">
+      <div class="audit-main">
+        <div class="audit-price">950 <span style="font-size:1.4rem;color:rgba(255,255,255,0.35)">€ HT</span></div>
+        <div class="audit-price-sub">Paiement sécurisé · Livrable sous 5 jours ouvrés</div>
+        <ul class="audit-list">
+          <li><span class="chk">✓</span>Analyse sur extraits ou documents anonymisés — échantillon représentatif de vos AO</li>
+          <li><span class="chk">✓</span>Audit du capital documentaire existant — mémoires, certifications, process, fiches métier</li>
+          <li><span class="chk">✓</span>Radar de performance documentaire sur 5 axes — score actuel et cible estimée</li>
+          <li><span class="chk">✓</span>Estimation des ressources mobilisées sur votre cycle de réponse AO — base de travail à affiner</li>
+          <li><span class="chk">✓</span>Feuille de route opérationnelle personnalisée, priorisée et chiffrée</li>
+          <li><span class="chk">✓</span>Kit opérationnel IA personnalisé — 4 outils internes directement exploitables par vos équipes : analyse DCE structurée, aide à la rédaction mémoire, qualification Go/No-Go, amélioration de mémoire en cours</li>
+        </ul>
+        <div class="audit-disclaimer">Aucun accès complet aux données sensibles requis pour démarrer.</div>
+        <div class="trigger-phrase">Si ces ordres de grandeur sont proches de votre réalité — l'audit permet de les confirmer, de les affiner, et d'identifier les leviers prioritaires pour votre structure.</div>
+        <a href="https://book.stripe.com/aFa7sKfqe0Rc9xRb2daEE04" class="btn-p">Commander l'Audit — 950 € HT</a>
+      </div>
+      <div class="audit-side">
+        <h3>Valider ces hypothèses en 15 min</h3>
+        <p>Un échange de qualification pour confronter cette analyse à votre réalité terrain et identifier vos leviers prioritaires — sans engagement.</p>
+        <ul class="side-list">
+          <li>Confronter les estimations à vos dossiers réels</li>
+          <li>Identifier les deux ou trois frictions les plus coûteuses</li>
+          <li>Évaluer si un audit structuré est pertinent à ce stade</li>
+        </ul>
+        <a href="https://calendly.com/contact-logos-impact/diagnostic-strategique-15-min" class="btn-s">Réserver un échange — 15 min</a>
+        <div style="margin-top:12px;">
+          <a href="mailto:contact@logos-impact.fr" class="btn-s" style="font-size:0.78rem;padding:10px 16px;opacity:0.7;">Recevoir un extrait d'analyse personnalisé</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BANNER ════════════════════════════════════════ -->
+<div class="banner">
+  <div class="banner-inner">
+    <div class="banner-text">
+      <h2>PRO HYGIENE SOLUTION dispose du savoir-faire<br>et des références.<br><em>L'enjeu est de répondre à plus — sans faire plus.</em></h2>
+      <p>Répondre davantage sans recruter. Concentrer les équipes sur les dossiers à potentiel. Éviter de mobiliser des ressources qualifiées sur des marchés non rentables. C'est ce que structure cet audit.</p>
+    </div>
+    <div class="banner-btns">
+      <a href="https://book.stripe.com/aFa7sKfqe0Rc9xRb2daEE04" class="bb-p">Commander l'Audit — 950 € HT</a>
+      <a href="https://calendly.com/contact-logos-impact/diagnostic-strategique-15-min" class="bb-s">Échanger 15 min</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ════════════════════════════════════════ -->
+<footer>
+  <div class="logo">LOGOS-<span>IMPACT</span></div>
+  <div class="footer-links">
+    <a href="https://docs.google.com/document/d/1-EJfdoHVsj6rHKzponAkasa9OtvSslmb86xx_uMDncU/edit" target="_blank">Mentions légales</a>
+    <a href="mailto:contact@logos-impact.fr">contact@logos-impact.fr</a>
+    <a href="https://logos-impact.fr" target="_blank">logos-impact.fr</a>
+  </div>
+  <div class="footer-copy">© 2026 Logos-Impact · Analyse confidentielle · Données issues de sources publiques (BOAMP, SIREN) · Les estimations présentées sont indicatives et non contractuelles</div>
+</footer>
+
+<script>
+// CountUp sur les KPI au scroll
+document.querySelectorAll('[data-target]').forEach(el => {
+  const obs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      const target = parseFloat(el.dataset.target);
+      if (isNaN(target)) return;
+      const dur = 1100, start = performance.now();
+      const run = now => {
+        const p = Math.min((now - start) / dur, 1);
+        el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target);
+        if (p < 1) requestAnimationFrame(run);
+      };
+      requestAnimationFrame(run);
+      obs.disconnect();
+    }
+  }, { threshold: 0.5 });
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
